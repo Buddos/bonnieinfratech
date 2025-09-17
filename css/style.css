@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #0077cc;
+  color: white;
+  padding: 15px;
+}
+header nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.hero {
+  text-align: center;
+  padding: 50px;
+  background: #f4f4f4;
+}
+.products, .services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.product, .service {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+}
+button {
+  background: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+button:hover {
+  background: #005fa3;
+}
