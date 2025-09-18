@@ -16,3 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+function checkLogin(event) {
+  event.preventDefault();
+
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+
+  // Simple hardcoded login (for demo only!)
+  if (username === "admin" && password === "1234") {
+    window.location.href = "admin.html"; // redirect to admin page
+  } else {
+    document.getElementById("error").innerText = "Invalid login credentials!";
+  }
+}
