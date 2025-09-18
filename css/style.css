@@ -3,32 +3,67 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Header container */
 header {
-  background: #0077cc;
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: center;
+  padding: 15px 30px;
+  background: #0077cc; /* keep your original blue */
   color: white;
-  padding: 15px;
+  border-bottom: 2px solid #ddd;
 }
-header nav a {
-  color: white;
-  margin: 0 10px;
+
+/* Logo */
+header .logo {
+  height: 60px;
+  width: auto;
+}
+
+/* Remove underline from logo link */
+header .logo-link {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
+
+/* Navigation links */
+header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+header nav a:hover {
+  color: #ffdd00; /* yellow hover */
+}
+
+/* Hero section */
 .hero {
   text-align: center;
   padding: 50px;
   background: #f4f4f4;
 }
+
+/* Products and Services */
 .products, .services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
 }
+
 .product, .service {
   border: 1px solid #ddd;
   padding: 15px;
   text-align: center;
 }
+
+/* Buttons */
 button {
   background: #0077cc;
   color: white;
@@ -36,13 +71,30 @@ button {
   padding: 10px;
   cursor: pointer;
 }
+
 button:hover {
   background: #005fa3;
 }
+
+/* Product Images */
 .product img {
   width: 200px;
   height: 200px;
-  object-fit: cover; /* keeps image cropped nicely */
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Responsive header */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+  header nav {
+    margin-top: 10px;
+  }
+  header nav a {
+    margin: 0 10px;
+  }
 }
