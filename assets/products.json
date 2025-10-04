@@ -1,0 +1,12 @@
+[
+  {
+    "name": "WiFi Router X100",
+    "description": "High-speed router for home and office.",
+    "image": "assets/router.jpg"
+  },
+  {
+    "name": "CAT6 Ethernet Cable",
+    "description": "Durable and reliable networking cable.",
+    "image": "assets/cable.jpg"
+  }
+]

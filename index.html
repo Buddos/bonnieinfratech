@@ -5,7 +5,199 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BonnieInfratech Solutions</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+
+
+    /* ====== GLOBAL STYLES ====== */
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #1b5e20;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8e6c9;
+    }
+
+    /* ====== HERO SECTION ====== */
+    .hero {
+      text-align: center;
+      background: linear-gradient(135deg, #43a047, #1b5e20);
+      color: white;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background-color: white;
+      color: #2e7d32;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e8f5e9;
+      color: #1b5e20;
+    }
+
+    /* ====== PRODUCTS ====== */
+    .products {
+      padding: 60px 40px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .products h2 {
+      color: #1b5e20;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .product {
+      display: inline-block;
+      width: 280px;
+      margin: 15px;
+      background: #f9f9f9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      color: #2e7d32;
+      margin: 15px 0 8px;
+    }
+
+    .product p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 10px;
+      padding: 0 10px;
+    }
+
+    .product button {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .product button:hover {
+      background: #1b5e20;
+    }
+
+    /* ====== SERVICES ====== */
+    .services {
+      background-color: #e8f5e9;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .service {
+      display: inline-block;
+      width: 300px;
+      margin: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+    }
+
+    .service h3 {
+      color: #1b5e20;
+      margin-bottom: 10px;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background-color: #1b5e20;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .product, .service {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
+<script src="js/main.js"></script>
+
 <body>
   <header>
     <a href="index.html" class="logo-link">
@@ -28,24 +220,17 @@
   </section>
 
   <section class="products">
-    <div class="product">
-      <img src="assets/sample-product.jpg" alt="Product 1">
-      <h3>Product 1</h3>
-      <p>High-quality and durable.</p>
-      <button>Buy Now</button>
-    </div>
-    <div class="product">
-      <img src="assets/sample-product.jpg" alt="Product 2">
-      <h3>Product 2</h3>
-      <p>Trusted by professionals.</p>
-      <button>Buy Now</button>
+    <h2>Our Featured Products</h2>
+    <div id="product-list">
+      <!-- Products will load automatically here -->
     </div>
   </section>
 
   <section class="services">
+    <h2>Our Services</h2>
     <div class="service">
       <h3>Consulting</h3>
-      <p>Expert advice tailored to your business.</p>
+      <p>Expert advice tailored to your business needs.</p>
     </div>
     <div class="service">
       <h3>Support</h3>
@@ -56,5 +241,32 @@
   <footer>
     <p>© 2025 BonnieInfratech Solutions. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // ===== Dynamic Product Loader =====
+    document.addEventListener("DOMContentLoaded", () => {
+      const productList = document.getElementById("product-list");
+
+      fetch("assets/products.json")
+        .then(res => res.json())
+        .then(products => {
+          products.forEach(p => {
+            const div = document.createElement("div");
+            div.className = "product";
+            div.innerHTML = `
+              <img src="${p.image}" alt="${p.name}">
+              <h3>${p.name}</h3>
+              <p>${p.description}</p>
+              <button>Buy Now</button>
+            `;
+            productList.appendChild(div);
+          });
+        })
+        .catch(err => {
+          console.error("Error loading products:", err);
+          productList.innerHTML = "<p>Products coming soon...</p>";
+        });
+    });
+  </script>
 </body>
 </html>

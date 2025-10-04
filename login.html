@@ -5,21 +5,149 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - BonnieInfratech</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #43a047, #1b5e20);
+      overflow: hidden;
+    }
+
+    /* ===== CONTAINER ===== */
+    .login-container {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 360px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== HEADINGS ===== */
+    h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    /* ===== LABELS ===== */
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 600;
+      color: #333;
+      margin-top: 15px;
+    }
+
+    /* ===== INPUT FIELDS ===== */
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #4CAF50;
+      outline: none;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    }
+
+    /* ===== BUTTON ===== */
+    button {
+      width: 100%;
+      margin-top: 25px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.1s ease-in-out;
+    }
+
+    button:hover {
+      background: #388E3C;
+      transform: scale(1.02);
+    }
+
+    /* ===== ERROR MESSAGE ===== */
+    #error {
+      margin-top: 15px;
+      color: red;
+      font-size: 14px;
+      height: 18px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      color: white;
+      font-size: 13px;
+      text-align: center;
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    /* ===== BACKGROUND EFFECT ===== */
+    .bg-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: float 6s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .bg-circle.one { width: 150px; height: 150px; top: 10%; left: 15%; }
+    .bg-circle.two { width: 200px; height: 200px; bottom: 15%; right: 20%; }
+  </style>
 </head>
+
 <body>
+  <!-- Decorative background circles -->
+  <div class="bg-circle one"></div>
+  <div class="bg-circle two"></div>
+
   <div class="login-container">
-    <h2>Login</h2>
+    <h2>BonnieInfratech Login</h2>
     <form onsubmit="return checkLogin(event)">
       <label for="username">Username</label>
-      <input type="text" id="username" required>
-      
+      <input type="text" id="username" placeholder="Enter your username" required>
+
       <label for="password">Password</label>
-      <input type="password" id="password" required>
-      
+      <input type="password" id="password" placeholder="Enter your password" required>
+
       <button type="submit">Login</button>
     </form>
-    <p id="error" style="color:red;"></p>
+    <p id="error"></p>
   </div>
+
+  <footer>&copy; 2025 BonnieInfratech | All Rights Reserved</footer>
 
   <script src="js/script.js"></script>
 </body>
