@@ -16,18 +16,21 @@
     }
 
     /* ====== HEADER ====== */
-    header {
-      background-color: white;
-      color: black;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+    
+     /* ====== FIXED HEADER + NAV COLORS ====== */
+header {
+  background-color: #f4f4f4;  /* soft gray background */
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 
     .logo {
       height: 60px;
@@ -43,20 +46,16 @@
     }
 
     nav a {
-      color: black;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
+  color: #000 !important;        /* force black text */
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
     nav a:hover {
-      background-color: #1565c0;
-      color: #fff;
-    }
-
+  color: #2e7d32 !important;     /* green hover effect */
+}
     /* Special styling for Register & Login buttons */
     nav a[href="registration.html"],
     nav a[href="login.html"] {
