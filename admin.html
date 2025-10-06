@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin - BonnieInfratech Solutions</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header>
     <h2>Admin Dashboard</h2>
-    <a href="index.html">Back to Home</a>
+    <a href="index.html" class="btn-back">← Back to Home</a>
   </header>
 
   <section class="admin">
+    <!-- ADD PRODUCT SECTION -->
     <h3>Add New Product</h3>
-    <form id="addProductForm">
-      <input type="text" id="productName" placeholder="Product Name" required>
-      <input type="text" id="productPrice" placeholder="Product Price" required>
-      <button type="submit">Add Product</button>
+    <form id="uploadProductForm">
+      <input type="file" id="productImage" accept="image/*" required />
+      <input type="text" id="productName" placeholder="Product Name" required />
+      <input type="text" id="productPrice" placeholder="Product Price (optional)" />
+      <textarea id="productDesc" placeholder="Short Description..." required></textarea>
+      <button type="submit">Upload Product</button>
     </form>
 
+    <h3>Uploaded Products</h3>
+    <div id="productGallery" class="product-gallery"></div>
+
+    <hr />
+
+    <!-- MESSAGES SECTION -->
     <h3>Messages</h3>
-    <p>Check submitted messages.</p>
+    <p>Check submitted messages here (coming soon).</p>
   </section>
 
-  <script src="js/script.js"></script>
+  <footer>
+    <p>© 2025 BonnieInfratech Solutions. All Rights Reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

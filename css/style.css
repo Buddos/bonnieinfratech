@@ -17,7 +17,7 @@ header {
 
 /* Logo */
 header .logo {
-  height: 60px;
+  height: 80px;
   width: auto;
 }
 
@@ -98,3 +98,58 @@ button:hover {
     margin: 0 10px;
   }
 }
+
+.contact-info {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f5f9ff;
+}
+
+.contact-info h2 {
+  font-size: 2em;
+  color: #0077cc;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.contact-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.contact-box {
+  flex: 1 1 250px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.contact-box h3 {
+  color: #0077cc;
+  margin-bottom: 10px;
+}
+
+.contact-box a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+   
