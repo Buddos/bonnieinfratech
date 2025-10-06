@@ -1,29 +1,27 @@
 [
   {
     "name": "Tenda AC1200 Router",
-    "description": "High-speed dual-band router for seamless WiFi performance.",
+    "description": "High-speed dual-band router for home and office.",
     "image": "assets/Tenda AC1200 router.png"
   },
   {
-    "name": "Tenda Router",
-    "description": "Reliable and efficient router for home and office use.",
-    "image": "assets/Tenda router.png"
-  },
-  {
-    "name": "Tenda WE AX300 Router",
-    "description": "Next-gen WiFi 6 router for superior range and speed.",
+    "name": "Tenda Router WE AX300",
+    "description": "Powerful WiFi 6 router with advanced range and stability.",
     "image": "assets/Tenda router WE AX300 router.png"
   },
   {
-    "name": "Cat 6 Ethernet Cable",
-    "description": "Durable, high-quality Ethernet cable for stable LAN connections.",
-    "image": "assets/cat 6 ethernet cable.png"
+    "name": "Tenda Router",
+    "description": "Reliable router for everyday internet use.",
+    "image": "assets/Tenda router.png"
   },
   {
     "name": "CAT6 Ethernet Cable",
-    "description": "Enhanced cable for faster, interference-free data transfer.",
+    "description": "High-quality Ethernet cable for fast and stable connections.",
     "image": "assets/CAT6 Ethernet Cable.png"
+  },
+  {
+    "name": "Cat 6 Ethernet Cable (Alt)",
+    "description": "Durable and long CAT6 cable, perfect for networking.",
+    "image": "assets/cat 6 ethernet cable.png"
   }
 ]
-
-

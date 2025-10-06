@@ -5,44 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Products - BonnieInfratech Solutions</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    header {
+      background-color: #1b5e20;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header a {
+      color: #c8e6c9;
+      text-decoration: none;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .products {
+      padding: 40px;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+
+    .products h2 {
+      color: #2e7d32;
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    #product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .product {
+      background: #fff;
+      width: 260px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      color: #1b5e20;
+      margin: 15px 0 5px;
+    }
+
+    .product p {
+      color: #555;
+      margin-bottom: 10px;
+      padding: 0 10px;
+    }
+
+    .product button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #1b5e20;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h2>Our Products</h2>
-    <a href="index.html">Back to Home</a>
+    <a href="index.html">🏠 Back to Home</a>
   </header>
 
   <section class="products">
-    <div class="product">
-      <img src="assets/product-images/wifi-router.jpg" alt="WiFi Router">
-      <h3>WiFi Router</h3>
-      <p>Ksh 3,500</p>
-      <button onclick="orderProduct('WiFi Router')">Order</button>
-    </div>
-    <div class="product">
-  <img src="assets/product-images/router.jpg" alt="WiFi Router">
-  <h3>WiFi Router</h3>
-  <p>Ksh 3,500</p>
-  <button onclick="addToCart('WiFi Router', 3500)">Add to Cart</button>
-</div>
-
-
-    <div class="product">
-      <img src="assets/product-images/headphones.jpg" alt="Headphones">
-      <h3>Headphones</h3>
-      <p>Ksh 1,200</p>
-      <button onclick="orderProduct('Headphones')">Order</button>
+    <h2>Explore Our Latest Products</h2>
+    <div id="product-list">
+      <!-- Dynamic products will load here -->
     </div>
   </section>
-  <div class="product">
-  <img src="https://www.pexels.com/photo/security-smart-home-monitoring-camera-27663079/" alt="cctv">
-  <h3>CCTV</h3>
-  <p>ksh 5000</p>
- <button onclick="orderproduct('CCTV')">order</button>
 
-  </div>
+  <footer style="text-align:center; padding:20px; background:#1b5e20; color:white;">
+    © 2025 BonnieInfratech Solutions. All Rights Reserved.
+  </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
-

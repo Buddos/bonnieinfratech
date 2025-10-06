@@ -104,3 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const userRole = localStorage.getItem("userRole"); // e.g., "admin" or "customer"
+  const adminLink = document.querySelector(".admin-link");
+
+  if (userRole !== "admin" && adminLink) {
+    adminLink.style.display = "none";
+  }
+});
