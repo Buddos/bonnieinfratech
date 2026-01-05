@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy - BonnieInfratech Solutions</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    :root {
+      --primary: #1a5f23;
+      --primary-dark: #0f4417;
+      --primary-light: #2e7d32;
+      --secondary: #ff9800;
+      --accent: #2196f3;
+      --light: #f8f9fa;
+      --dark: #333;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(26, 95, 35, 0.2);
+    }
+
+    /* ====== HEADER & NAVIGATION ====== */
+    header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo-text span {
+      color: var(--secondary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: var(--dark);
+      padding: 8px 0;
+      position: relative;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .auth-buttons a {
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .auth-buttons .login {
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .auth-buttons .login:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register:hover {
+      background: var(--primary-dark);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* ====== COOKIE HERO ====== */
+    .cookie-hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      text-align: center;
+      padding: 100px 0 60px;
+      margin-bottom: 60px;
+    }
+
+    .cookie-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .cookie-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* ====== COOKIE CONTENT ====== */
+    .cookie-content {
+      padding: 60px 0;
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      margin-bottom: 60px;
+    }
+
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .last-updated {
+      text-align: center;
+      color: var(--gray);
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .last-updated strong {
+      color: var(--primary);
+    }
+
+    .cookie-section {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cookie-section:last-child {
+      border-bottom: none;
+    }
+
+    .cookie-section h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cookie-section h2 i {
+      color: var(--secondary);
+    }
+
+    .cookie-section p {
+      color: var(--gray);
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .cookie-section ul, .cookie-section ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+      color: var(--gray);
+    }
+
+    .cookie-section li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    /* ====== COOKIE TABLE ====== */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .cookie-table thead {
+      background: var(--primary);
+      color: white;
+    }
+
+    .cookie-table th {
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .cookie-table tbody tr {
+      border-bottom: 1px solid #eee;
+      transition: var(--transition);
+    }
+
+    .cookie-table tbody tr:hover {
+      background: var(--light-gray);
+    }
+
+    .cookie-table td {
+      padding: 15px;
+      color: var(--dark);
+    }
+
+    .cookie-type {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-right: 5px;
+    }
+
+    .cookie-type.essential {
+      background: #e8f5e9;
+      color: var(--primary);
+    }
+
+    .cookie-type.functional {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    .cookie-type.performance {
+      background: #fff3e0;
+      color: #e65100;
+    }
+
+    .cookie-type.advertising {
+      background: #fce4ec;
+      color: #ad1457;
+    }
+
+    /* ====== COOKIE CONTROL PANEL ====== */
+    .cookie-control {
+      background: var(--light);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 40px 0;
+      border: 1px solid #ddd;
+    }
+
+    .cookie-control h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .cookie-preference {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .cookie-preference:last-child {
+      border-bottom: none;
+    }
+
+    .preference-info h4 {
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .preference-info p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 0;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: var(--transition);
+      border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: var(--transition);
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: var(--primary);
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(30px);
+    }
+
+    input:disabled + .toggle-slider {
+      background-color: #666;
+      cursor: not-allowed;
+    }
+
+    .control-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+      justify-content: flex-end;
+    }
+
+    /* ====== QUICK NAV ====== */
+    .quick-nav {
+      position: sticky;
+      top: 120px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      margin-bottom: 40px;
+    }
+
+    .quick-nav h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .quick-nav ul {
+      list-style: none;
+    }
+
+    .quick-nav li {
+      margin-bottom: 12px;
+    }
+
+    .quick-nav a {
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      padding: 8px 0;
+    }
+
+    .quick-nav a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .quick-nav i {
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo .logo-text {
+      color: white;
+    }
+
+    .footer-logo p {
+      margin-top: 15px;
+      opacity: 0.8;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 992px) {
+      .cookie-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .content-container {
+        padding: 0 20px;
+      }
+      
+      .cookie-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        width: 100%;
+        display: none;
+        margin-top: 20px;
+      }
+      
+      nav.active {
+        display: block;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .auth-buttons {
+        margin-top: 15px;
+        justify-content: center;
+      }
+      
+      .cookie-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .cookie-hero {
+        padding: 80px 0 40px;
+      }
+      
+      .cookie-preference {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .toggle-switch {
+        align-self: flex-end;
+      }
+      
+      .control-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .cookie-section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .cookie-control {
+        padding: 20px;
+      }
+      
+      .cookie-table th, .cookie-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-img-placeholder" style="height: 50px; width: 50px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">BI</div>
+        <div class="logo-text">Bonnie<span>Infratech</span></div>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="login">Login</a>
+          <a href="registration.html" class="register">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Cookie Hero -->
+  <section class="cookie-hero">
+    <div class="container">
+      <h1>Cookie Policy</h1>
+      <p>This policy explains how we use cookies and similar technologies on our website.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="cookie-content">
+      <div class="content-container">
+        <div class="last-updated">
+          <p><strong>Last Updated:</strong> May 15, 2025</p>
+          <p>This Cookie Policy explains how BonnieInfratech Solutions ("we", "us", or "our") uses cookies and similar tracking technologies when you visit our website.</p>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+          <h3><i class="fas fa-bookmark"></i> Quick Navigation</h3>
+          <ul>
+            <li><a href="#what-are-cookies"><i class="fas fa-chevron-right"></i> What Are Cookies?</a></li>
+            <li><a href="#how-we-use"><i class="fas fa-chevron-right"></i> How We Use Cookies</a></li>
+            <li><a href="#types-of-cookies"><i class="fas fa-chevron-right"></i> Types of Cookies We Use</a></li>
+            <li><a href="#cookie-table"><i class="fas fa-chevron-right"></i> Detailed Cookie List</a></li>
+            <li><a href="#third-party"><i class="fas fa-chevron-right"></i> Third-Party Cookies</a></li>
+            <li><a href="#managing-cookies"><i class="fas fa-chevron-right"></i> Managing Cookies</a></li>
+            <li><a href="#changes"><i class="fas fa-chevron-right"></i> Policy Changes</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Cookie Policy Content -->
+        <div class="cookie-section" id="what-are-cookies">
+          <h2><i class="fas fa-cookie-bite"></i> What Are Cookies?</h2>
+          <p>Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and provide information to the website owners.</p>
+          
+          <p>Cookies may be set by the website you are visiting (first-party cookies) or by third parties, such as those who provide analytics or advertising services (third-party cookies).</p>
+          
+          <h3>Similar Technologies</h3>
+          <p>In addition to cookies, we may use other similar tracking technologies such as:</p>
+          <ul>
+            <li><strong>Web Beacons:</strong> Tiny graphics with a unique identifier that track user activity</li>
+            <li><strong>Local Storage:</strong> Data stored in your browser for longer periods than cookies</li>
+            <li><strong>Session Storage:</strong> Temporary storage that lasts only for your browsing session</li>
+            <li><strong>Pixel Tags:</strong> Invisible images used to track user behavior</li>
+          </ul>
+        </div>
+
+        <div class="cookie-section" id="how-we-use">
+          <h2><i class="fas fa-chart-line"></i> How We Use Cookies</h2>
+          <p>We use cookies for various purposes, including:</p>
+          
+          <ol>
+            <li><strong>Essential Operation:</strong> To enable basic website functionality and security</li>
+            <li><strong>Performance:</strong> To analyze how visitors use our website and improve its performance</li>
+            <li><strong>Functionality:</strong> To remember your preferences and personalize your experience</li>
+            <li><strong>Advertising:</strong> To deliver relevant advertisements and measure their effectiveness</li>
+            <li><strong>Analytics:</strong> To understand user behavior and improve our services</li>
+          </ol>
+          
+          <p>By using our website, you consent to the use of cookies in accordance with this policy. You can control cookies through your browser settings, but disabling certain cookies may affect the functionality of our website.</p>
+        </div>
+
+        <div class="cookie-section" id="types-of-cookies">
+          <h2><i class="fas fa-layer-group"></i> Types of Cookies We Use</h2>
+          
+          <div class="cookie-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Purpose</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="cookie-type essential">Essential</span>
+                </td>
+                <td>Required for basic website functionality, security, and authentication</td>
+                <td>Session or up to 1 year</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="cookie-type performance">Performance</span>
+                </td>
+                <td>Help us understand how visitors interact with our website</td>
+                <td>Up to 2 years</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="cookie-type functional">Functional</span>
+                </td>
+                <td>Remember your preferences and personalize your experience</td>
+                <td>Up to 1 year</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="cookie-type advertising">Advertising</span>
+                </td>
+                <td>Used to deliver relevant advertisements and measure effectiveness</td>
+                <td>Up to 1 year</td>
+              </tr>
+            </tbody>
+          </div>
+        </div>
+
+        <div class="cookie-section" id="cookie-table">
+          <h2><i class="fas fa-list-alt"></i> Detailed Cookie List</h2>
+          <p>The table below provides more detailed information about the specific cookies we use:</p>
+          
+          <div class="cookie-table">
+            <thead>
+              <tr>
+                <th>Cookie Name</th>
+                <th>Type</th>
+                <th>Purpose</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>session_id</td>
+                <td><span class="cookie-type essential">Essential</span></td>
+                <td>Maintains your session state and authentication</td>
+                <td>Session</td>
+              </tr>
+              <tr>
+                <td>csrf_token</td>
+                <td><span class="cookie-type essential">Essential</span></td>
+                <td>Protects against cross-site request forgery attacks</td>
+                <td>Session</td>
+              </tr>
+              <tr>
+                <td>user_preferences</td>
+                <td><span class="cookie-type functional">Functional</span></td>
+                <td>Stores your language and display preferences</td>
+                <td>1 year</td>
+              </tr>
+              <tr>
+                <td>_ga</td>
+                <td><span class="cookie-type performance">Performance</span></td>
+                <td>Google Analytics - distinguishes unique users</td>
+                <td>2 years</td>
+              </tr>
+              <tr>
+                <td>_gid</td>
+                <td><span class="cookie-type performance">Performance</span></td>
+                <td>Google Analytics - distinguishes unique users</td>
+                <td>24 hours</td>
+              </tr>
+              <tr>
+                <td>_gat</td>
+                <td><span class="cookie-type performance">Performance</span></td>
+                <td>Google Analytics - throttles request rate</td>
+                <td>1 minute</td>
+              </tr>
+              <tr>
+                <td>cart_items</td>
+                <td><span class="cookie-type functional">Functional</span></td>
+                <td>Remembers items in your shopping cart</td>
+                <td>30 days</td>
+              </tr>
+              <tr>
+                <td>cookie_consent</td>
+                <td><span class="cookie-type essential">Essential</span></td>
+                <td>Remembers your cookie preferences</td>
+                <td>1 year</td>
+              </tr>
+            </tbody>
+          </div>
+        </div>
+
+        <!-- Cookie Control Panel -->
+        <div class="cookie-control" id="cookie-control">
+          <h3><i class="fas fa-sliders-h"></i> Cookie Preferences</h3>
+          <p>You can customize your cookie preferences below. Essential cookies cannot be disabled as they are necessary for the website to function properly.</p>
+          
+          <div class="cookie-preference">
+            <div class="preference-info">
+              <h4>Essential Cookies</h4>
+              <p>Required for basic website functionality, security, and authentication. These cannot be disabled.</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked disabled>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="cookie-preference">
+            <div class="preference-info">
+              <h4>Performance Cookies</h4>
+              <p>Help us understand how visitors interact with our website and improve its performance.</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="performanceToggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="cookie-preference">
+            <div class="preference-info">
+              <h4>Functional Cookies</h4>
+              <p>Remember your preferences and personalize your experience on our website.</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="functionalToggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="cookie-preference">
+            <div class="preference-info">
+              <h4>Advertising Cookies</h4>
+              <p>Used to deliver relevant advertisements and measure their effectiveness.</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="advertisingToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          
+          <div class="control-actions">
+            <button class="btn" id="savePreferences">Save Preferences</button>
+            <button class="btn" style="background: var(--gray);" id="acceptAll">Accept All</button>
+            <button class="btn" style="background: #e53935;" id="rejectAll">Reject Non-Essential</button>
+          </div>
+        </div>
+
+        <div class="cookie-section" id="third-party">
+          <h2><i class="fas fa-external-link-alt"></i> Third-Party Cookies</h2>
+          <p>We may allow third parties to set cookies on your device when you visit our website. These third parties include:</p>
+          
+          <h3>Analytics Providers</h3>
+          <ul>
+            <li><strong>Google Analytics:</strong> Helps us understand how visitors use our website</li>
+            <li><strong>Hotjar:</strong> Provides heatmaps and user session recordings</li>
+          </ul>
+          
+          <h3>Advertising Partners</h3>
+          <ul>
+            <li><strong>Google Ads:</strong> For remarketing and conversion tracking</li>
+            <li><strong>Facebook Pixel:</strong> For advertising measurement and optimization</li>
+          </ul>
+          
+          <h3>Social Media</h3>
+          <ul>
+            <li><strong>Facebook:</strong> For social sharing and login functionality</li>
+            <li><strong>Twitter:</strong> For social sharing and content embedding</li>
+            <li><strong>LinkedIn:</strong> For professional networking integration</li>
+          </ul>
+          
+          <p>These third parties have their own privacy policies and cookie practices. We encourage you to review their policies to understand how they use your information.</p>
+        </div>
+
+        <div class="cookie-section" id="managing-cookies">
+          <h2><i class="fas fa-cog"></i> Managing Cookies</h2>
+          <p>You can control and manage cookies in various ways:</p>
+          
+          <h3>Browser Settings</h3>
+          <p>Most web browsers allow you to control cookies through their settings. Here's how to manage cookies in popular browsers:</p>
+          
+          <ul>
+            <li><strong>Google Chrome:</strong> Settings → Privacy and Security → Cookies and other site data</li>
+            <li><strong>Mozilla Firefox:</strong> Options → Privacy & Security → Cookies and Site Data</li>
+            <li><strong>Safari:</strong> Preferences → Privacy → Cookies and website data</li>
+            <li><strong>Microsoft Edge:</strong> Settings → Cookies and site permissions → Cookies and site data</li>
+          </ul>
+          
+          <h3>Opt-Out Tools</h3>
+          <p>You can opt out of certain types of tracking:</p>
+          <ul>
+            <li><a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-Out</a></li>
+            <li><a href="https://www.facebook.com/ads/preferences" target="_blank">Facebook Ad Preferences</a></li>
+            <li><a href="https://optout.aboutads.info" target="_blank">Digital Advertising Alliance</a></li>
+          </ul>
+          
+          <h3>Do Not Track</h3>
+          <p>Some browsers have a "Do Not Track" feature that lets you tell websites you do not want to be tracked. We currently do not respond to "Do Not Track" signals.</p>
+        </div>
+
+        <div class="cookie-section" id="changes">
+          <h2><i class="fas fa-sync-alt"></i> Changes to This Policy</h2>
+          <p>We may update this Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page and updating the "Last Updated" date.</p>
+          
+          <p>We encourage you to review this Cookie Policy periodically for any changes. Your continued use of our website after any changes constitutes acceptance of the updated policy.</p>
+          
+          <p>For significant changes, we may provide more prominent notice, such as a banner on our website or an email notification to registered users.</p>
+        </div>
+
+        <div class="cookie-section" id="contact">
+          <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+          <p>If you have any questions about this Cookie Policy or our use of cookies, please contact us:</p>
+          
+          <div style="background: var(--light-gray); padding: 25px; border-radius: 12px; margin-top: 20px;">
+            <h3>BonnieInfratech Solutions</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Isiolo, Kenya</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:privacy@bonnieinfratech.co.ke">privacy@bonnieinfratech.co.ke</a></p>
+            <p><i class="fas fa-phone"></i> +254-705-123-736</p>
+            <p><i class="fas fa-clock"></i> Response Time: Within 48 hours</p>
+            
+            <p style="margin-top: 15px;">For cookie-related inquiries, please include "Cookie Policy" in the subject line.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-text">Bonnie<span>Infratech</span></div>
+          <p>Your trusted partner for IT solutions, networking, and software development services in Kenya and beyond.</p>
+          
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Isiolo, Kenya</li>
+            <li><i class="fas fa-phone" style="margin-right: 8px;"></i> +254-705-123-736</li>
+            <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> bonifacemwonera02@gmail.com</li>
+            <li><i class="fas fa-clock" style="margin-right: 8px;"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 BonnieInfratech Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Cookie preference management
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load saved preferences
+      const savedPreferences = localStorage.getItem('cookiePreferences');
+      if (savedPreferences) {
+        const preferences = JSON.parse(savedPreferences);
+        document.getElementById('performanceToggle').checked = preferences.performance;
+        document.getElementById('functionalToggle').checked = preferences.functional;
+        document.getElementById('advertisingToggle').checked = preferences.advertising;
+      }
+      
+      // Save preferences
+      document.getElementById('savePreferences').addEventListener('click', () => {
+        const preferences = {
+          performance: document.getElementById('performanceToggle').checked,
+          functional: document.getElementById('functionalToggle').checked,
+          advertising: document.getElementById('advertisingToggle').checked
+        };
+        
+        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+        
+        // Show success message
+        alert('Your cookie preferences have been saved successfully!');
+      });
+      
+      // Accept all
+      document.getElementById('acceptAll').addEventListener('click', () => {
+        document.getElementById('performanceToggle').checked = true;
+        document.getElementById('functionalToggle').checked = true;
+        document.getElementById('advertisingToggle').checked = true;
+        
+        const preferences = {
+          performance: true,
+          functional: true,
+          advertising: true
+        };
+        
+        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+        alert('All cookies have been accepted!');
+      });
+      
+      // Reject non-essential
+      document.getElementById('rejectAll').addEventListener('click', () => {
+        document.getElementById('performanceToggle').checked = false;
+        document.getElementById('functionalToggle').checked = false;
+        document.getElementById('advertisingToggle').checked = false;
+        
+        const preferences = {
+          performance: false,
+          functional: false,
+          advertising: false
+        };
+        
+        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+        alert('Non-essential cookies have been rejected!');
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add active class to current page in navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

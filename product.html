@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Products - BonnieInfratech Solutions</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    :root {
+      --primary: #1a5f23;
+      --primary-dark: #0f4417;
+      --primary-light: #2e7d32;
+      --secondary: #ff9800;
+      --accent: #2196f3;
+      --light: #f8f9fa;
+      --dark: #333;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      display: inline-block;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(26, 95, 35, 0.2);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+    }
+
+    .btn-secondary:hover {
+      background: #e68900;
+    }
+
+    /* ====== HEADER & NAVIGATION ====== */
+    header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo-text span {
+      color: var(--secondary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: var(--dark);
+      padding: 8px 0;
+      position: relative;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .auth-buttons a {
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .auth-buttons .login {
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .auth-buttons .login:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register:hover {
+      background: var(--primary-dark);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* ====== PRODUCTS HERO ====== */
+    .products-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                  url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 120px 0 80px;
+      margin-bottom: 60px;
+    }
+
+    .products-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .products-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    /* ====== PRODUCT FILTERS ====== */
+    .products-filters {
+      padding: 40px 0;
+      background: white;
+    }
+
+    .filter-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      padding: 10px 25px;
+      background: var(--light-gray);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .search-box {
+      max-width: 500px;
+      margin: 0 auto 30px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px 20px 15px 50px;
+      border: 2px solid #ddd;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 95, 35, 0.1);
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+    }
+
+    /* ====== PRODUCTS GRID ====== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+      height: 220px;
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--secondary);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .product-badge.new {
+      background: #2196f3;
+    }
+
+    .product-badge.bestseller {
+      background: #f44336;
+    }
+
+    .product-badge.sale {
+      background: #4caf50;
+    }
+
+    .product-content {
+      padding: 25px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-category {
+      display: inline-block;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .product-card h3 {
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 12px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .product-description {
+      color: var(--gray);
+      margin-bottom: 15px;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .product-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .product-features li {
+      margin-bottom: 8px;
+      color: var(--dark);
+      display: flex;
+      align-items: flex-start;
+      font-size: 0.9rem;
+    }
+
+    .product-features i {
+      color: var(--secondary);
+      margin-right: 10px;
+      margin-top: 3px;
+      font-size: 0.8rem;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .price-main {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .price-old {
+      font-size: 1rem;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-left: 5px;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cart-btn, .view-btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      font-size: 0.9rem;
+    }
+
+    .cart-btn {
+      background: var(--primary);
+      color: white;
+    }
+
+    .cart-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .view-btn {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .view-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ====== PRODUCT COMPARISON ====== */
+    .product-comparison {
+      padding: 80px 0;
+      background: var(--light-gray);
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-table th {
+      background: var(--primary);
+      color: white;
+      padding: 20px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .comparison-table td {
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table .feature-name {
+      font-weight: 600;
+      color: var(--dark);
+      background: #f9f9f9;
+    }
+
+    /* ====== CATEGORIES SECTION ====== */
+    .categories-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .category-card {
+      background: var(--light-gray);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: var(--transition);
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    .category-card:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .category-icon {
+      width: 70px;
+      height: 70px;
+      background: white;
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+      transition: var(--transition);
+    }
+
+    .category-card:hover .category-icon {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .category-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .category-card p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* ====== CTA SECTION ====== */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .cta-content p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn {
+      background: white;
+      color: var(--primary);
+      min-width: 180px;
+    }
+
+    .cta-buttons .btn-secondary {
+      background: var(--secondary);
+      color: white;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo .logo-text {
+      color: white;
+    }
+
+    .footer-logo p {
+      margin-top: 15px;
+      opacity: 0.8;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+    }
+
+    /* ====== PRODUCT MODAL ====== */
+    .product-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .modal-body {
+      padding: 40px;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 992px) {
+      .products-hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .comparison-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        width: 100%;
+        display: none;
+        margin-top: 20px;
+      }
+      
+      nav.active {
+        display: block;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .auth-buttons {
+        margin-top: 15px;
+        justify-content: center;
+      }
+      
+      .products-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-actions {
+        flex-direction: column;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .products-hero {
+        padding: 100px 0 60px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .filter-options {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .filter-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .modal-body {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-img-placeholder" style="height: 50px; width: 50px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">BI</div>
+        <div class="logo-text">Bonnie<span>Infratech</span></div>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="login">Login</a>
+          <a href="registration.html" class="register">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Products Hero -->
+  <section class="products-hero">
+    <div class="container">
+      <h1>Premium IT Products & Networking Equipment</h1>
+      <p>Discover high-quality networking devices, computer accessories, and software solutions for your business needs.</p>
+      <a href="#products" class="btn btn-secondary">Explore Products</a>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Shop By Category</h2>
+      </div>
+      
+      <div class="categories-grid">
+        <a href="#networking" class="category-card" data-category="networking">
+          <div class="category-icon">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <h3>Networking</h3>
+          <p>Routers, switches, access points, and networking equipment</p>
+        </a>
+        
+        <a href="#accessories" class="category-card" data-category="accessories">
+          <div class="category-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <h3>Computer Accessories</h3>
+          <p>Keyboards, mice, monitors, docking stations, and peripherals</p>
+        </a>
+        
+        <a href="#software" class="category-card" data-category="software">
+          <div class="category-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Software</h3>
+          <p>Licensed software, security tools, and business applications</p>
+        </a>
+        
+        <a href="#security" class="category-card" data-category="security">
+          <div class="category-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Security</h3>
+          <p>Firewalls, VPN solutions, and security appliances</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Filters -->
+  <section class="products-filters">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="products">Our Products</h2>
+      </div>
+      
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="productSearch" placeholder="Search products...">
+      </div>
+      
+      <div class="filter-options">
+        <button class="filter-btn active" data-filter="all">All Products</button>
+        <button class="filter-btn" data-filter="networking">Networking</button>
+        <button class="filter-btn" data-filter="accessories">Accessories</button>
+        <button class="filter-btn" data-filter="software">Software</button>
+        <button class="filter-btn" data-filter="security">Security</button>
+        <button class="filter-btn" data-filter="bestseller">Bestsellers</button>
+      </div>
+      
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsContainer">
+        <!-- Products will be loaded dynamically from JSON -->
+      </div>
+      
+      <!-- Load More Button -->
+      <div style="text-align: center; margin-top: 40px;">
+        <button id="loadMore" class="btn">Load More Products</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Comparison -->
+  <section class="product-comparison">
+    <div class="container">
+      <div class="section-title">
+        <h2>Product Comparison</h2>
+        <p style="color: var(--gray); max-width: 700px; margin: 10px auto;">Compare our top networking products to find the best solution for your needs</p>
+      </div>
+      
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Basic WiFi Router</th>
+              <th>Business Router</th>
+              <th>Enterprise Router</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-name">Max Speed</td>
+              <td>300 Mbps</td>
+              <td>1.2 Gbps</td>
+              <td>2.5 Gbps</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Coverage</td>
+              <td>Up to 100m²</td>
+              <td>Up to 300m²</td>
+              <td>Up to 1000m²</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Connections</td>
+              <td>Up to 20 devices</td>
+              <td>Up to 50 devices</td>
+              <td>Up to 200 devices</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Security</td>
+              <td>Basic WPA2</td>
+              <td>WPA3 + Firewall</td>
+              <td>Enterprise Security Suite</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Warranty</td>
+              <td>1 Year</td>
+              <td>3 Years</td>
+              <td>5 Years</td>
+            </tr>
+            <tr>
+              <td class="feature-name">Price</td>
+              <td>KES 8,000</td>
+              <td>KES 25,000</td>
+              <td>KES 65,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Need Help Choosing the Right Products?</h2>
+        <p>Our IT experts can help you select the perfect products for your business requirements and budget.</p>
+        
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn">Get Free Consultation</a>
+          <a href="tel:+254705123736" class="btn btn-secondary">Call: +254-705-123-736</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Modal -->
+  <div class="product-modal" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Modal content will be populated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-text">Bonnie<span>Infratech</span></div>
+          <p>Your trusted partner for IT solutions, networking, and software development services in Kenya and beyond.</p>
+          
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Product Categories</h3>
+          <ul>
+            <li><a href="#networking">Networking Equipment</a></li>
+            <li><a href="#accessories">Computer Accessories</a></li>
+            <li><a href="#software">Software Solutions</a></li>
+            <li><a href="#security">Security Products</a></li>
+            <li><a href="#bestseller">Bestsellers</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Isiolo, Kenya</li>
+            <li><i class="fas fa-phone" style="margin-right: 8px;"></i> +254-705-123-736</li>
+            <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> bonifacemwonera02@gmail.com</li>
+            <li><i class="fas fa-clock" style="margin-right: 8px;"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 BonnieInfratech Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Sample product data (in real app, load from JSON file)
+    const products = [
+      {
+        id: 1,
+        name: "Enterprise WiFi Router Pro",
+        category: "networking",
+        badge: "bestseller",
+        description: "High-performance router for businesses with advanced security features and dual-band connectivity.",
+        features: ["Dual-band 2.4GHz & 5GHz", "MU-MIMO technology", "WPA3 security", "4 Gigabit ports", "VPN support"],
+        price: 45000,
+        oldPrice: 52000,
+        image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.8,
+        stock: 15
+      },
+      {
+        id: 2,
+        name: "Mesh WiFi System 3-Pack",
+        category: "networking",
+        badge: "new",
+        description: "Whole-home coverage with seamless roaming, parental controls, and easy setup.",
+        features: ["Covers up to 500m²", "Seamless roaming", "Parental controls", "Easy app setup", "Guest network"],
+        price: 32000,
+        oldPrice: 38000,
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.7,
+        stock: 8
+      },
+      {
+        id: 3,
+        name: "24-Port Gigabit Switch",
+        category: "networking",
+        description: "Managed gigabit Ethernet switch for office networks with PoE+ support.",
+        features: ["24 Gigabit ports", "PoE+ support", "VLAN support", "Web management", "Rack-mountable"],
+        price: 28500,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.5,
+        stock: 12
+      },
+      {
+        id: 4,
+        name: "Wireless Access Point Pro",
+        category: "networking",
+        badge: "sale",
+        description: "Ceiling-mounted access point for high-density environments with cloud management.",
+        features: ["802.11ac Wave 2", "Cloud managed", "MU-MIMO", "PoE powered", "LED control"],
+        price: 18000,
+        oldPrice: 22000,
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.6,
+        stock: 20
+      },
+      {
+        id: 5,
+        name: "USB-C Docking Station",
+        category: "accessories",
+        badge: "bestseller",
+        description: "Docking station with dual monitor support, Ethernet, and multiple USB ports.",
+        features: ["Dual 4K display", "100W power delivery", "Gigabit Ethernet", "6 USB ports", "SD card reader"],
+        price: 12500,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.4,
+        stock: 25
+      },
+      {
+        id: 6,
+        name: "Business VPN License (50 Users)",
+        category: "software",
+        description: "Secure remote access solution for up to 50 concurrent users with advanced security.",
+        features: ["50 concurrent users", "Bank-grade encryption", "24/7 support", "Multi-platform", "Audit logs"],
+        price: 65000,
+        oldPrice: 75000,
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.9,
+        stock: "License"
+      },
+      {
+        id: 7,
+        name: "Network Cabinet 19\"",
+        category: "accessories",
+        description: "Wall-mount cabinet for network equipment with cooling fans and cable management.",
+        features: ["19\" standard", "Wall mountable", "Cooling fans", "Lockable door", "Cable management"],
+        price: 35000,
+        oldPrice: null,
+        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.3,
+        stock: 10
+      },
+      {
+        id: 8,
+        name: "Inventory Management Software",
+        category: "software",
+        badge: "new",
+        description: "Custom software for tracking stock, sales, and inventory across multiple locations.",
+        features: ["Multi-location", "Barcode scanning", "Sales analytics", "Mobile app", "Cloud backup"],
+        price: 120000,
+        oldPrice: 150000,
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.8,
+        stock: "Custom"
+      },
+      {
+        id: 9,
+        name: "Enterprise Firewall",
+        category: "security",
+        badge: "bestseller",
+        description: "Next-generation firewall with intrusion prevention and advanced threat protection.",
+        features: ["Deep packet inspection", "IPS/IDS", "VPN gateway", "Web filtering", "Application control"],
+        price: 85000,
+        oldPrice: 95000,
+        image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.9,
+        stock: 6
+      },
+      {
+        id: 10,
+        name: "Surveillance Camera System",
+        category: "security",
+        description: "8-channel surveillance system with 4K cameras and remote monitoring.",
+        features: ["8-channel NVR", "4K cameras", "Night vision", "Remote access", "Motion detection"],
+        price: 75000,
+        oldPrice: 85000,
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        rating: 4.7,
+        stock: 8
+      }
+    ];
+    
+    let displayedProducts = 6;
+    const productsPerLoad = 4;
+    
+    // Function to render products
+    function renderProducts(filter = 'all', searchQuery = '') {
+      const productsContainer = document.getElementById('productsContainer');
+      productsContainer.innerHTML = '';
+      
+      let filteredProducts = products;
+      
+      // Apply search filter
+      if (searchQuery) {
+        filteredProducts = filteredProducts.filter(product => 
+          product.name.toLowerCase().includes(searchQuery) ||
+          product.description.toLowerCase().includes(searchQuery) ||
+          product.category.toLowerCase().includes(searchQuery)
+        );
+      }
+      
+      // Apply category filter
+      if (filter !== 'all') {
+        if (filter === 'bestseller') {
+          filteredProducts = filteredProducts.filter(product => product.badge === 'bestseller');
+        } else {
+          filteredProducts = filteredProducts.filter(product => product.category === filter);
+        }
+      }
+      
+      // Limit number of displayed products
+      const productsToShow = filteredProducts.slice(0, displayedProducts);
+      
+      if (productsToShow.length === 0) {
+        productsContainer.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--gray);">
+            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+            <h3>No products found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+          </div>
+        `;
+        return;
+      }
+      
+      productsToShow.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.setAttribute('data-category', product.category);
+        productCard.setAttribute('data-id', product.id);
+        
+        // Generate badge if exists
+        const badge = product.badge ? `<span class="product-badge ${product.badge}">${product.badge}</span>` : '';
+        
+        // Generate features list
+        let featuresList = '';
+        if (product.features && product.features.length > 0) {
+          // Show only first 3 features
+          const featuresToShow = product.features.slice(0, 3);
+          featuresList = featuresToShow.map(feature => 
+            `<li><i class="fas fa-check"></i> ${feature}</li>`
+          ).join('');
+        }
+        
+        // Generate rating stars
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+          if (i <= Math.floor(product.rating)) {
+            stars += '<i class="fas fa-star" style="color: #ffc107;"></i>';
+          } else if (i === Math.ceil(product.rating) && !Number.isInteger(product.rating)) {
+            stars += '<i class="fas fa-star-half-alt" style="color: #ffc107;"></i>';
+          } else {
+            stars += '<i class="far fa-star" style="color: #ddd;"></i>';
+          }
+        }
+        
+        productCard.innerHTML = `
+          ${badge}
+          <img src="${product.image}" alt="${product.name}" class="product-image">
+          <div class="product-content">
+            <span class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</span>
+            <h3>${product.name}</h3>
+            <p class="product-description">${product.description}</p>
+            
+            ${featuresList ? `<ul class="product-features">${featuresList}</ul>` : ''}
+            
+            <div style="margin-bottom: 15px;">
+              ${stars} <span style="margin-left: 5px; color: var(--gray);">${product.rating}</span>
+              <span style="float: right; color: ${product.stock === 'License' || product.stock === 'Custom' ? '#2196f3' : product.stock > 10 ? '#4caf50' : '#ff9800'}; font-size: 0.9rem;">
+                ${typeof product.stock === 'number' ? `${product.stock} in stock` : product.stock}
+              </span>
+            </div>
+            
+            <div class="product-price">
+              <div>
+                <span class="price-main">KES ${product.price.toLocaleString()}</span>
+                ${product.oldPrice ? `<span class="price-old">KES ${product.oldPrice.toLocaleString()}</span>` : ''}
+              </div>
+              <div class="product-actions">
+                <button class="cart-btn" data-id="${product.id}"><i class="fas fa-shopping-cart"></i> Add</button>
+                <button class="view-btn" data-id="${product.id}">View</button>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        productsContainer.appendChild(productCard);
+      });
+      
+      // Show/hide load more button
+      const loadMoreBtn = document.getElementById('loadMore');
+      if (filteredProducts.length > displayedProducts) {
+        loadMoreBtn.style.display = 'inline-block';
+      } else {
+        loadMoreBtn.style.display = 'none';
+      }
+    }
+    
+    // Initialize products
+    renderProducts();
+    
+    // Filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Reset displayed products count
+        displayedProducts = 6;
+        
+        // Filter products
+        const filter = button.getAttribute('data-filter');
+        const searchQuery = document.getElementById('productSearch').value.toLowerCase();
+        renderProducts(filter, searchQuery);
+        
+        // Scroll to products section
+        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    
+    // Category cards
+    const categoryCards = document.querySelectorAll('.category-card');
+    categoryCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = card.getAttribute('data-category');
+        
+        // Update active filter button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+          if (btn.getAttribute('data-filter') === category) {
+            btn.classList.add('active');
+          }
+        });
+        
+        // Reset displayed products count
+        displayedProducts = 6;
+        
+        // Filter products
+        renderProducts(category);
+        
+        // Scroll to products section
+        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    
+    // Search functionality
+    const productSearch = document.getElementById('productSearch');
+    productSearch.addEventListener('input', () => {
+      const searchQuery = productSearch.value.toLowerCase();
+      const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+      displayedProducts = 6;
+      renderProducts(activeFilter, searchQuery);
+    });
+    
+    // Load more button
+    document.getElementById('loadMore').addEventListener('click', () => {
+      displayedProducts += productsPerLoad;
+      const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+      const searchQuery = document.getElementById('productSearch').value.toLowerCase();
+      renderProducts(activeFilter, searchQuery);
+    });
+    
+    // Add to cart functionality
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('cart-btn') || e.target.closest('.cart-btn')) {
+        const button = e.target.classList.contains('cart-btn') ? e.target : e.target.closest('.cart-btn');
+        const productId = button.getAttribute('data-id');
+        const product = products.find(p => p.id == productId);
+        
+        // Add to cart logic (simulated)
+        button.innerHTML = '<i class="fas fa-check"></i> Added';
+        button.style.background = '#4caf50';
+        
+        // Show notification
+        showNotification(`${product.name} added to cart!`);
+        
+        // Reset button after 2 seconds
+        setTimeout(() => {
+          button.innerHTML = '<i class="fas fa-shopping-cart"></i> Add';
+          button.style.background = '';
+        }, 2000);
+      }
+    });
+    
+    // View product details
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('view-btn') || e.target.closest('.view-btn')) {
+        const button = e.target.classList.contains('view-btn') ? e.target : e.target.closest('.view-btn');
+        const productId = button.getAttribute('data-id');
+        const product = products.find(p => p.id == productId);
+        
+        // Open modal with product details
+        openProductModal(product);
+      }
+    });
+    
+    // Product modal
+    const productModal = document.getElementById('productModal');
+    const modalClose = document.getElementById('modalClose');
+    const modalBody = document.getElementById('modalBody');
+    
+    function openProductModal(product) {
+      // Generate full features list
+      const featuresList = product.features ? 
+        product.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('') : '';
+      
+      // Generate rating stars
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        if (i <= Math.floor(product.rating)) {
+          stars += '<i class="fas fa-star" style="color: #ffc107;"></i>';
+        } else if (i === Math.ceil(product.rating) && !Number.isInteger(product.rating)) {
+          stars += '<i class="fas fa-star-half-alt" style="color: #ffc107;"></i>';
+        } else {
+          stars += '<i class="far fa-star" style="color: #ddd;"></i>';
+        }
+      }
+      
+      modalBody.innerHTML = `
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+          <div>
+            <img src="${product.image}" alt="${product.name}" style="width: 100%; border-radius: 12px;">
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+              <button class="btn" style="flex: 1;" data-id="${product.id}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+              <button class="btn btn-secondary" style="flex: 1;"><i class="fas fa-phone"></i> Enquire</button>
+            </div>
+          </div>
+          <div>
+            <span class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</span>
+            <h2 style="color: var(--primary); margin: 10px 0 15px;">${product.name}</h2>
+            
+            <div style="margin-bottom: 20px;">
+              ${stars} <span style="margin-left: 5px; color: var(--gray);">${product.rating} (24 reviews)</span>
+            </div>
+            
+            <p style="color: var(--gray); line-height: 1.8; margin-bottom: 25px;">${product.description}</p>
+            
+            <div style="background: var(--light-gray); padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+              <h4 style="color: var(--primary); margin-bottom: 15px;">Features</h4>
+              <ul style="columns: 2; list-style: none;">
+                ${featuresList}
+              </ul>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div>
+                <div style="font-size: 2rem; font-weight: 800; color: var(--primary);">KES ${product.price.toLocaleString()}</div>
+                ${product.oldPrice ? `<div style="color: var(--gray); text-decoration: line-through;">KES ${product.oldPrice.toLocaleString()}</div>` : ''}
+              </div>
+              <div style="color: ${product.stock === 'License' || product.stock === 'Custom' ? '#2196f3' : product.stock > 10 ? '#4caf50' : '#ff9800'}">
+                <i class="fas fa-box"></i> ${typeof product.stock === 'number' ? `${product.stock} in stock` : product.stock}
+              </div>
+            </div>
+            
+            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px;">
+              <i class="fas fa-shipping-fast" style="color: var(--primary); margin-right: 10px;"></i>
+              <strong>Free delivery</strong> within Isiolo for orders above KES 20,000
+            </div>
+          </div>
+        </div>
+      `;
+      
+      productModal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    modalClose.addEventListener('click', () => {
+      productModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    
+    productModal.addEventListener('click', (e) => {
+      if (e.target === productModal) {
+        productModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // Notification function
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--primary);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 3000;
+        animation: slideInRight 0.3s ease-out;
+      `;
+      notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.3s ease-out';
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+    
+    // Add CSS animation for notifications
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideInRight {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideOutRight {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Add active class to current page in navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Services - BonnieInfratech Solutions</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    :root {
+      --primary: #1a5f23;
+      --primary-dark: #0f4417;
+      --primary-light: #2e7d32;
+      --secondary: #ff9800;
+      --accent: #2196f3;
+      --light: #f8f9fa;
+      --dark: #333;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      display: inline-block;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(26, 95, 35, 0.2);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+    }
+
+    .btn-secondary:hover {
+      background: #e68900;
+    }
+
+    /* ====== HEADER & NAVIGATION ====== */
+    header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo-text span {
+      color: var(--secondary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: var(--dark);
+      padding: 8px 0;
+      position: relative;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .auth-buttons a {
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .auth-buttons .login {
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .auth-buttons .login:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register:hover {
+      background: var(--primary-dark);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* ====== HERO SECTION ====== */
+    .services-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                  url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 120px 0 80px;
+      margin-bottom: 60px;
+    }
+
+    .services-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .services-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    /* ====== SERVICES CATEGORIES ====== */
+    .services-categories {
+      padding: 60px 0;
+      background: white;
+    }
+
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+
+    .category-tab {
+      padding: 12px 30px;
+      background: var(--light-gray);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .category-tab.active, .category-tab:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ====== SERVICES GRID ====== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-image {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .service-features li {
+      margin-bottom: 10px;
+      color: var(--dark);
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .service-features i {
+      color: var(--secondary);
+      margin-right: 10px;
+      margin-top: 4px;
+      font-size: 0.9rem;
+    }
+
+    .service-pricing {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .price span {
+      font-size: 0.9rem;
+      color: var(--gray);
+      font-weight: normal;
+    }
+
+    /* ====== SERVICE DETAILS ====== */
+    .service-details {
+      padding: 80px 0;
+      background: var(--light-gray);
+    }
+
+    .detail-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .detail-text h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+    }
+
+    .detail-text p {
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .detail-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      background: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .stat-text {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* ====== PROCESS SECTION ====== */
+    .process-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-top: 50px;
+    }
+
+    .process-steps:before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--light-gray);
+      z-index: 0;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      max-width: 200px;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 0 auto 20px;
+      box-shadow: 0 5px 15px rgba(26, 95, 35, 0.2);
+    }
+
+    .step h4 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .step p {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* ====== CTA SECTION ====== */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .cta-content p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn {
+      background: white;
+      color: var(--primary);
+      min-width: 180px;
+    }
+
+    .cta-buttons .btn-secondary {
+      background: var(--secondary);
+      color: white;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo .logo-text {
+      color: white;
+    }
+
+    .footer-logo p {
+      margin-top: 15px;
+      opacity: 0.8;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 992px) {
+      .services-hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .process-steps {
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+      
+      .process-steps:before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        width: 100%;
+        display: none;
+        margin-top: 20px;
+      }
+      
+      nav.active {
+        display: block;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .auth-buttons {
+        margin-top: 15px;
+        justify-content: center;
+      }
+      
+      .services-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .detail-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .services-hero {
+        padding: 100px 0 60px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .category-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .category-tab {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-img-placeholder" style="height: 50px; width: 50px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">BI</div>
+        <div class="logo-text">Bonnie<span>Infratech</span></div>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="login">Login</a>
+          <a href="registration.html" class="register">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <h1>Comprehensive IT & Networking Services</h1>
+      <p>From WiFi installations to full IT infrastructure management, we provide end-to-end technology solutions that empower your business to thrive in the digital age.</p>
+      <a href="#services" class="btn btn-secondary">Explore Our Services</a>
+    </div>
+  </section>
+
+  <!-- Services Categories -->
+  <section class="services-categories">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Service Categories</h2>
+      </div>
+      
+      <div class="category-tabs">
+        <button class="category-tab active" data-category="all">All Services</button>
+        <button class="category-tab" data-category="networking">Networking</button>
+        <button class="category-tab" data-category="it-support">IT Support</button>
+        <button class="category-tab" data-category="software">Software</button>
+        <button class="category-tab" data-category="consulting">Consulting</button>
+      </div>
+      
+      <!-- Services Grid -->
+      <div class="services-grid" id="services">
+        <!-- WiFi Installation -->
+        <div class="service-card" data-category="networking">
+          <img src="https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="WiFi Installation" class="service-image">
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-wifi"></i>
+            </div>
+            <h3>WiFi Installation & Optimization</h3>
+            <p>Professional installation of high-speed WiFi networks for homes, offices, and commercial spaces. We ensure optimal coverage, security, and performance.</p>
+            
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> Site survey & network planning</li>
+              <li><i class="fas fa-check"></i> Enterprise-grade equipment</li>
+              <li><i class="fas fa-check"></i> Security configuration</li>
+              <li><i class="fas fa-check"></i> Performance optimization</li>
+            </ul>
+            
+            <div class="service-pricing">
+              <div class="price">From KES 15,000</div>
+              <a href="contact.html" class="btn">Get Quote</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Network Infrastructure -->
+        <div class="service-card" data-category="networking">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Network Infrastructure" class="service-image">
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <h3>Network Infrastructure Setup</h3>
+            <p>Design and implementation of robust network infrastructures including switches, routers, firewalls, and cabling systems for businesses of all sizes.</p>
+            
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> Structured cabling</li>
+              <li><i class="fas fa-check"></i> Router & switch configuration</li>
+              <li><i class="fas fa-check"></i> VLAN segmentation</li>
+              <li><i class="fas fa-check"></i> Network security</li>
+            </ul>
+            
+            <div class="service-pricing">
+              <div class="price">From KES 50,000</div>
+              <a href="contact.html" class="btn">Get Quote</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- IT Support & Maintenance -->
+        <div class="service-card" data-category="it-support">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IT Support" class="service-image">
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>IT Support & Maintenance</h3>
+            <p>Comprehensive IT support services including troubleshooting, maintenance, and proactive monitoring to keep your systems running smoothly.</p>
+            
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> 24/7 technical support</li>
+              <li><i class="fas fa-check"></i> Preventive maintenance</li>
+              <li><i class="fas fa-check"></i> Hardware repairs</li>
+              <li><i class="fas fa-check"></i> Software troubleshooting</li>
+            </ul>
+            
+            <div class="service-pricing">
+              <div class="price">KES 10,000<span>/month</span></div>
+              <a href="contact.html" class="btn">Get Quote</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Computer Accessories -->
+        <div class="service-card" data-category="it-support">
+          <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Computer Accessories" class="service-image">
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <h3>Computer Accessories & Peripherals</h3>
+            <p>Supply and installation of quality computer accessories including monitors, keyboards, docking stations, printers, and other peripherals.</p>
+            
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> Hardware procurement</li>
+              <li><i class="fas fa-check"></i> Installation & setup</li>
+              <li><i class="fas fa-check"></i> Driver configuration</li>
+              <li><i class="fas fa-check"></i> Compatibility testing</li>
+            </ul>
+            
+            <div class="service-pricing">
+              <div class="price">Variable Pricing</div>
+              <a href="products.html" class="btn">View Products</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Software Development -->
+        <div class="service-card" data-category="software">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Software Development" class="service-image">
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Custom Software Development</h3>
+            <p>Development of tailored software solutions including business applications, inventory management systems, and custom web applications.</p>
+            
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> Web application development</li>
+              <li><i class="fas fa-check"></i> Database design</li>
+              <li><i class="fas fa-check"></i> Mobile-responsive design</li>
+              <li><i class="fas fa-check"></i> Ongoing support & updates</li>
+            </ul>
+            
+            <div class="service-pricing">
+              <div class="price">From KES 80,000</div>
+              <a href="contact.html" class="btn">Get Quote</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- IT Consulting -->
+        <div class="service-card" data-category="consulting">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IT Consulting" class="service-image">
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>IT Strategy & Consulting</h3>
+            <p>Expert technology consulting to help you plan, implement, and optimize your IT infrastructure for maximum efficiency and business growth.</p>
+            
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> Technology assessment</li>
+              <li><i class="fas fa-check"></i> Digital transformation</li>
+              <li><i class="fas fa-check"></i> Cost optimization</li>
+              <li><i class="fas fa-check"></i> Future-proof planning</li>
+            </ul>
+            
+            <div class="service-pricing">
+              <div class="price">KES 25,000<span>/project</span></div>
+              <a href="contact.html" class="btn">Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section class="service-details">
+    <div class="container">
+      <div class="detail-content">
+        <div class="detail-text">
+          <h2>End-to-End IT Solutions for Modern Businesses</h2>
+          <p>At BonnieInfratech, we understand that technology is the backbone of modern business. Our comprehensive service portfolio is designed to address every aspect of your IT needs, from basic connectivity to complex digital transformation.</p>
+          <p>With certified technicians and years of industry experience, we deliver reliable, scalable, and secure solutions that align with your business objectives and budget.</p>
+          
+          <div class="detail-stats">
+            <div class="stat-item">
+              <div class="stat-number">200+</div>
+              <div class="stat-text">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">99.8%</div>
+              <div class="stat-text">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">24/7</div>
+              <div class="stat-text">Support Available</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">15+</div>
+              <div class="stat-text">Certified Engineers</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="detail-image">
+          <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IT Solutions" style="width: 100%; border-radius: 16px; box-shadow: var(--shadow);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Service Process</h2>
+      </div>
+      
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Consultation</h4>
+          <p>We discuss your needs, challenges, and objectives to understand your requirements.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Planning</h4>
+          <p>Our experts design a tailored solution with clear timelines and deliverables.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Implementation</h4>
+          <p>We deploy the solution with minimal disruption to your operations.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4>Support</h4>
+          <p>Ongoing maintenance and support to ensure optimal performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your IT Infrastructure?</h2>
+        <p>Contact us today for a free consultation and discover how our services can help your business grow and thrive in the digital age.</p>
+        
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn">Get Started Today</a>
+          <a href="tel:+254705123736" class="btn btn-secondary">Call Now: +254-705-123-736</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-text">Bonnie<span>Infratech</span></div>
+          <p>Your trusted partner for IT solutions, networking, and software development services in Kenya and beyond.</p>
+          
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Our Services</h3>
+          <ul>
+            <li><a href="#services">WiFi Installation</a></li>
+            <li><a href="#services">Network Infrastructure</a></li>
+            <li><a href="#services">IT Support</a></li>
+            <li><a href="#services">Software Development</a></li>
+            <li><a href="#services">IT Consulting</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Isiolo, Kenya</li>
+            <li><i class="fas fa-phone" style="margin-right: 8px;"></i> +254-705-123-736</li>
+            <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> bonifacemwonera02@gmail.com</li>
+            <li><i class="fas fa-clock" style="margin-right: 8px;"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 BonnieInfratech Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Service category filtering
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        tab.classList.add('active');
+        
+        const category = tab.getAttribute('data-category');
+        
+        // Filter service cards
+        serviceCards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add active class to current page in navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

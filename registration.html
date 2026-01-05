@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - BonnieInfratech Solutions</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    :root {
+      --primary: #1a5f23;
+      --primary-dark: #0f4417;
+      --primary-light: #2e7d32;
+      --secondary: #ff9800;
+      --accent: #2196f3;
+      --light: #f8f9fa;
+      --dark: #333;
+      --gray: #6c757d;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #1a5f23 0%, #2e7d32 50%, #43a047 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ===== BACKGROUND EFFECTS ===== */
+    .background-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+      background-image: 
+        radial-gradient(circle at 10% 90%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+      background-size: 80px 80px;
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      animation: float 20s infinite linear;
+    }
+
+    .shape:nth-child(1) {
+      width: 180px;
+      height: 180px;
+      top: 5%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      bottom: 10%;
+      right: 15%;
+      animation-delay: 7s;
+    }
+
+    .shape:nth-child(3) {
+      width: 90px;
+      height: 90px;
+      top: 60%;
+      left: 5%;
+      animation-delay: 14s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    /* ===== REGISTRATION CONTAINER ===== */
+    .register-wrapper {
+      width: 1000px;
+      max-width: 95%;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .register-container {
+      display: flex;
+      min-height: 650px;
+    }
+
+    /* ===== LEFT SIDE (FORM) ===== */
+    .register-left {
+      flex: 1.5;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-header {
+      margin-bottom: 40px;
+    }
+
+    .form-header h1 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .form-header p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== FORM STYLES ===== */
+    .register-form {
+      width: 100%;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      flex: 1;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 0.95rem;
+    }
+
+    .form-label.required:after {
+      content: ' *';
+      color: #e53935;
+    }
+
+    .input-with-icon {
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 14px 14px 45px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 95, 35, 0.1);
+    }
+
+    .form-input.error {
+      border-color: #e53935;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    /* ===== PASSWORD STRENGTH ===== */
+    .password-strength {
+      margin-top: 8px;
+      height: 6px;
+      background: #e0e0e0;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .strength-meter {
+      height: 100%;
+      width: 0;
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    .strength-meter.weak {
+      width: 30%;
+      background: #e53935;
+    }
+
+    .strength-meter.fair {
+      width: 60%;
+      background: #ff9800;
+    }
+
+    .strength-meter.good {
+      width: 80%;
+      background: #4caf50;
+    }
+
+    .strength-meter.strong {
+      width: 100%;
+      background: var(--primary);
+    }
+
+    .strength-text {
+      font-size: 0.8rem;
+      margin-top: 5px;
+      color: var(--gray);
+    }
+
+    /* ===== TERMS AND CONDITIONS ===== */
+    .terms-group {
+      display: flex;
+      align-items: flex-start;
+      margin: 30px 0;
+    }
+
+    .terms-group input {
+      margin-top: 5px;
+      margin-right: 10px;
+      accent-color: var(--primary);
+    }
+
+    .terms-group label {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--gray);
+    }
+
+    .terms-group a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .terms-group a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== REGISTER BUTTON ===== */
+    .register-btn {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .register-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(26, 95, 35, 0.2);
+    }
+
+    .register-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* ===== LOGIN LINK ===== */
+    .login-link {
+      text-align: center;
+      margin-top: 30px;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .login-link a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .login-link a:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    /* ===== ERROR MESSAGE ===== */
+    .error-message {
+      background: #ffebee;
+      color: #c62828;
+      padding: 12px 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .error-message i {
+      font-size: 1.2rem;
+    }
+
+    /* ===== RIGHT SIDE (BRANDING) ===== */
+    .register-right {
+      flex: 1;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 50px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .register-right::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.3;
+      animation: movePattern 30s linear infinite;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-icon {
+      width: 70px;
+      height: 70px;
+      background: white;
+      color: var(--primary);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    .brand-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+      font-weight: 800;
+    }
+
+    .brand-text p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .benefits {
+      position: relative;
+      z-index: 2;
+      margin-top: 30px;
+    }
+
+    .benefits h3 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .benefit-icon {
+      background: rgba(255, 255, 255, 0.2);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+
+    .benefit-text h4 {
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .benefit-text p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    /* ===== PROGRESS STEPS ===== */
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .progress-steps::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #e0e0e0;
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 10px;
+      transition: var(--transition);
+    }
+
+    .step.active .step-number {
+      background: var(--primary);
+      color: white;
+    }
+
+    .step.completed .step-number {
+      background: var(--primary);
+      color: white;
+    }
+
+    .step.completed .step-number:after {
+      content: '✓';
+    }
+
+    .step-text {
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    .step.active .step-text {
+      color: var(--primary);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .register-container {
+        flex-direction: column;
+      }
+      
+      .register-left, .register-right {
+        padding: 40px 30px;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .progress-steps {
+        margin-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .register-left, .register-right {
+        padding: 30px 20px;
+      }
+      
+      .form-header h1 {
+        font-size: 2rem;
+      }
+      
+      .brand-text h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background elements -->
+  <div class="background-pattern"></div>
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <!-- Main registration container -->
+  <div class="register-wrapper">
+    <div class="register-container">
+      <!-- Left side - Registration form -->
+      <div class="register-left">
+        <div class="form-header">
+          <h1>Create Account</h1>
+          <p>Join BonnieInfratech to access exclusive IT solutions, support, and networking services.</p>
+        </div>
+
+        <!-- Progress steps -->
+        <div class="progress-steps">
+          <div class="step active" id="step1">
+            <div class="step-number">1</div>
+            <div class="step-text">Account</div>
+          </div>
+          <div class="step" id="step2">
+            <div class="step-number">2</div>
+            <div class="step-text">Profile</div>
+          </div>
+          <div class="step" id="step3">
+            <div class="step-number">3</div>
+            <div class="step-text">Complete</div>
+          </div>
+        </div>
+
+        <!-- Error message -->
+        <div class="error-message" id="errorMessage">
+          <i class="fas fa-exclamation-circle"></i>
+          <span id="errorText">Please fill in all required fields correctly.</span>
+        </div>
+
+        <!-- Registration form -->
+        <form class="register-form" id="registerForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" class="form-label required">First Name</label>
+              <div class="input-with-icon">
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" id="firstName" class="form-input" placeholder="Enter your first name" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName" class="form-label required">Last Name</label>
+              <div class="input-with-icon">
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" id="lastName" class="form-input" placeholder="Enter your last name" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label required">Email Address</label>
+            <div class="input-with-icon">
+              <i class="fas fa-envelope input-icon"></i>
+              <input type="email" id="email" class="form-input" placeholder="Enter your email address" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="form-label required">Phone Number</label>
+            <div class="input-with-icon">
+              <i class="fas fa-phone input-icon"></i>
+              <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="company" class="form-label">Company (Optional)</label>
+            <div class="input-with-icon">
+              <i class="fas fa-building input-icon"></i>
+              <input type="text" id="company" class="form-input" placeholder="Enter your company name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password" class="form-label required">Password</label>
+              <div class="input-with-icon">
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="password" class="form-input" placeholder="Create a strong password" required>
+                <i class="fas fa-eye password-toggle" id="passwordToggle"></i>
+              </div>
+              <div class="password-strength">
+                <div class="strength-meter" id="strengthMeter"></div>
+              </div>
+              <div class="strength-text" id="strengthText">Password strength</div>
+            </div>
+            
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label required">Confirm Password</label>
+              <div class="input-with-icon">
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                <i class="fas fa-eye password-toggle" id="confirmPasswordToggle"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="terms-group">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">
+              I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>. 
+              I consent to receiving communications about IT solutions and offers from BonnieInfratech.
+            </label>
+          </div>
+
+          <button type="submit" class="register-btn">
+            <i class="fas fa-user-plus"></i>
+            <span>Create Account</span>
+          </button>
+
+          <div class="login-link">
+            Already have an account? <a href="login.html">Sign in here</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right side - Branding and benefits -->
+      <div class="register-right">
+        <div class="brand-logo">
+          <div class="logo-icon">BI</div>
+          <div class="brand-text">
+            <h2>BonnieInfratech</h2>
+            <p>IT Solutions & Networking</p>
+          </div>
+        </div>
+
+        <div class="benefits">
+          <h3>Why Join Us?</h3>
+          
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-wifi"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Exclusive IT Solutions</h4>
+              <p>Access to premium networking equipment, software, and support services.</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Priority Support</h4>
+              <p>Get 24/7 technical support and faster response times for your business needs.</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Special Offers</h4>
+              <p>Receive exclusive discounts, early access to new products, and special promotions.</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="benefit-text">
+              <h4>Business Growth</h4>
+              <p>Leverage our expertise to scale your IT infrastructure and drive business success.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Password visibility toggles
+    const passwordToggle = document.getElementById('passwordToggle');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordToggle = document.getElementById('confirmPasswordToggle');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const errorMessage = document.getElementById('errorMessage');
+    const errorText = document.getElementById('errorText');
+    const strengthMeter = document.getElementById('strengthMeter');
+    const strengthText = document.getElementById('strengthText');
+    
+    // Password strength checker
+    function checkPasswordStrength(password) {
+      let strength = 0;
+      let text = '';
+      let className = '';
+      
+      if (password.length >= 8) strength += 1;
+      if (/[A-Z]/.test(password)) strength += 1;
+      if (/[0-9]/.test(password)) strength += 1;
+      if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+      
+      switch(strength) {
+        case 0:
+        case 1:
+          text = 'Weak';
+          className = 'weak';
+          break;
+        case 2:
+          text = 'Fair';
+          className = 'fair';
+          break;
+        case 3:
+          text = 'Good';
+          className = 'good';
+          break;
+        case 4:
+          text = 'Strong';
+          className = 'strong';
+          break;
+      }
+      
+      strengthMeter.className = 'strength-meter ' + className;
+      strengthText.textContent = 'Password strength: ' + text;
+    }
+    
+    // Toggle password visibility
+    passwordToggle.addEventListener('click', () => {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      passwordToggle.classList.toggle('fa-eye');
+      passwordToggle.classList.toggle('fa-eye-slash');
+    });
+    
+    confirmPasswordToggle.addEventListener('click', () => {
+      const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      confirmPasswordInput.setAttribute('type', type);
+      confirmPasswordToggle.classList.toggle('fa-eye');
+      confirmPasswordToggle.classList.toggle('fa-eye-slash');
+    });
+    
+    // Check password strength on input
+    passwordInput.addEventListener('input', function() {
+      checkPasswordStrength(this.value);
+    });
+    
+    // Form validation and submission
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get form values
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const terms = document.getElementById('terms').checked;
+      
+      // Validation
+      let errors = [];
+      
+      if (!firstName) errors.push('First name is required');
+      if (!lastName) errors.push('Last name is required');
+      
+      if (!email) {
+        errors.push('Email is required');
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errors.push('Please enter a valid email address');
+      }
+      
+      if (!phone) {
+        errors.push('Phone number is required');
+      } else if (!/^[0-9+\-\s()]{10,}$/.test(phone.replace(/[^0-9]/g, ''))) {
+        errors.push('Please enter a valid phone number');
+      }
+      
+      if (!password) {
+        errors.push('Password is required');
+      } else if (password.length < 8) {
+        errors.push('Password must be at least 8 characters long');
+      }
+      
+      if (password !== confirmPassword) {
+        errors.push('Passwords do not match');
+      }
+      
+      if (!terms) {
+        errors.push('You must agree to the terms and conditions');
+      }
+      
+      // Display errors or submit form
+      if (errors.length > 0) {
+        showError(errors.join('<br>'));
+        return false;
+      }
+      
+      // Show success message and redirect
+      showError('', false);
+      
+      const registerBtn = document.querySelector('.register-btn');
+      const originalText = registerBtn.innerHTML;
+      
+      // Update progress steps
+      document.getElementById('step1').classList.add('completed');
+      document.getElementById('step2').classList.add('active');
+      
+      registerBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Creating account...</span>';
+      registerBtn.disabled = true;
+      
+      // Simulate registration process
+      setTimeout(() => {
+        document.getElementById('step2').classList.add('completed');
+        document.getElementById('step3').classList.add('active');
+        
+        // Save user data (in a real app, this would be sent to a server)
+        const userData = {
+          firstName,
+          lastName,
+          email,
+          phone,
+          company: document.getElementById('company').value.trim(),
+          registeredAt: new Date().toISOString()
+        };
+        
+        localStorage.setItem('bonnieinfratech_user', JSON.stringify(userData));
+        localStorage.setItem('bonnieinfratech_registered', 'true');
+        
+        // Update button to show success
+        registerBtn.innerHTML = '<i class="fas fa-check"></i><span>Account Created!</span>';
+        registerBtn.style.background = '#4caf50';
+        
+        // Redirect to login page after 2 seconds
+        setTimeout(() => {
+          window.location.href = 'login.html?registered=true';
+        }, 2000);
+        
+      }, 2000);
+      
+      return false;
+    });
+    
+    // Error display function
+    function showError(message, show = true) {
+      if (show) {
+        errorText.innerHTML = message;
+        errorMessage.style.display = 'flex';
+        
+        // Scroll to error message
+        errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        errorMessage.style.display = 'none';
+      }
+    }
+    
+    // Auto-format phone number
+    document.getElementById('phone').addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length > 0) {
+        if (value.length <= 3) {
+          value = value;
+        } else if (value.length <= 6) {
+          value = value.slice(0, 3) + '-' + value.slice(3);
+        } else if (value.length <= 10) {
+          value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6);
+        } else {
+          value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+        }
+      }
+      
+      e.target.value = value;
+    });
+    
+    // Check if user is already registered
+    document.addEventListener('DOMContentLoaded', () => {
+      const isRegistered = localStorage.getItem('bonnieinfratech_registered');
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      if (urlParams.get('registered') === 'true' || isRegistered) {
+        showError('Registration successful! You can now log in.', false);
+        const successAlert = document.createElement('div');
+        successAlert.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #4caf50;
+          color: white;
+          padding: 15px 20px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          z-index: 1000;
+          animation: slideInRight 0.5s ease-out;
+        `;
+        successAlert.innerHTML = '<i class="fas fa-check-circle"></i> Registration successful! Please log in.';
+        document.body.appendChild(successAlert);
+        
+        setTimeout(() => {
+          successAlert.style.animation = 'slideOutRight 0.5s ease-out';
+          setTimeout(() => successAlert.remove(), 500);
+        }, 3000);
+      }
+    });
+  </script>
+</body>
+</html>

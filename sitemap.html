@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap - BonnieInfratech Solutions</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    :root {
+      --primary: #1a5f23;
+      --primary-dark: #0f4417;
+      --primary-light: #2e7d32;
+      --secondary: #ff9800;
+      --accent: #2196f3;
+      --light: #f8f9fa;
+      --dark: #333;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(26, 95, 35, 0.2);
+    }
+
+    /* ====== HEADER & NAVIGATION ====== */
+    header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo-text span {
+      color: var(--secondary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: var(--dark);
+      padding: 8px 0;
+      position: relative;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .auth-buttons a {
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .auth-buttons .login {
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .auth-buttons .login:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register:hover {
+      background: var(--primary-dark);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* ====== SITEMAP HERO ====== */
+    .sitemap-hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      text-align: center;
+      padding: 100px 0 60px;
+      margin-bottom: 60px;
+    }
+
+    .sitemap-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .sitemap-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    /* ====== SITEMAP CONTENT ====== */
+    .sitemap-content {
+      padding: 60px 0;
+      background: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      margin-bottom: 60px;
+    }
+
+    .content-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .last-updated {
+      text-align: center;
+      color: var(--gray);
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .last-updated strong {
+      color: var(--primary);
+    }
+
+    /* ====== SITEMAP STRUCTURE ====== */
+    .sitemap-section {
+      margin-bottom: 40px;
+    }
+
+    .sitemap-section h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light-gray);
+    }
+
+    .sitemap-section h2 i {
+      color: var(--secondary);
+    }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .sitemap-category {
+      background: var(--light-gray);
+      border-radius: 12px;
+      padding: 25px;
+      transition: var(--transition);
+    }
+
+    .sitemap-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .category-header h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin: 0;
+    }
+
+    .page-list {
+      list-style: none;
+    }
+
+    .page-list li {
+      margin-bottom: 12px;
+      padding-left: 10px;
+      position: relative;
+    }
+
+    .page-list li:before {
+      content: '→';
+      position: absolute;
+      left: -10px;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    .page-list a {
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      padding: 5px 0;
+    }
+
+    .page-list a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .page-list i {
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    /* ====== VISUAL SITEMAP ====== */
+    .visual-sitemap {
+      margin: 50px 0;
+      text-align: center;
+    }
+
+    .visual-sitemap h3 {
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+
+    .sitemap-diagram {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+      position: relative;
+    }
+
+    .level-1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .level-1-item {
+      background: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      text-align: center;
+      min-width: 180px;
+    }
+
+    .level-1-item:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(26, 95, 35, 0.2);
+    }
+
+    .connector {
+      height: 40px;
+      width: 2px;
+      background: var(--secondary);
+      margin: 0 auto;
+    }
+
+    .level-2 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .level-2-item {
+      background: var(--light);
+      color: var(--dark);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid #ddd;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .level-2-item:hover {
+      background: var(--primary-light);
+      color: white;
+      border-color: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    /* ====== SEARCH SITEMAP ====== */
+    .search-sitemap {
+      background: var(--light);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .search-sitemap h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .search-box {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 12px 20px;
+      border: 2px solid #ddd;
+      border-radius: 50px 0 0 50px;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+    }
+
+    .search-box button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0 25px;
+      border-radius: 0 50px 50px 0;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .search-box button:hover {
+      background: var(--primary-dark);
+    }
+
+    .search-results {
+      margin-top: 20px;
+      text-align: left;
+      max-height: 200px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .search-results.show {
+      display: block;
+    }
+
+    .search-result-item {
+      padding: 10px 15px;
+      border-bottom: 1px solid #eee;
+      transition: var(--transition);
+    }
+
+    .search-result-item:hover {
+      background: rgba(26, 95, 35, 0.05);
+    }
+
+    .search-result-item a {
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-result-item a:hover {
+      color: var(--primary);
+    }
+
+    .no-results {
+      padding: 20px;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    /* ====== XML SITEMAP ====== */
+    .xml-sitemap {
+      background: var(--light-gray);
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .xml-sitemap h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .xml-sitemap p {
+      color: var(--gray);
+      margin-bottom: 15px;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo .logo-text {
+      color: white;
+    }
+
+    .footer-logo p {
+      margin-top: 15px;
+      opacity: 0.8;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 992px) {
+      .sitemap-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .content-container {
+        padding: 0 20px;
+      }
+      
+      .visual-sitemap {
+        display: none; /* Hide visual sitemap on smaller screens */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        width: 100%;
+        display: none;
+        margin-top: 20px;
+      }
+      
+      nav.active {
+        display: block;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .auth-buttons {
+        margin-top: 15px;
+        justify-content: center;
+      }
+      
+      .sitemap-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .sitemap-hero {
+        padding: 80px 0 40px;
+      }
+      
+      .sitemap-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .sitemap-section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .search-box {
+        flex-direction: column;
+      }
+      
+      .search-box input {
+        border-radius: 50px;
+        margin-bottom: 10px;
+      }
+      
+      .search-box button {
+        border-radius: 50px;
+        padding: 12px;
+      }
+      
+      .sitemap-category {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-img-placeholder" style="height: 50px; width: 50px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">BI</div>
+        <div class="logo-text">Bonnie<span>Infratech</span></div>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="login">Login</a>
+          <a href="registration.html" class="register">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sitemap Hero -->
+  <section class="sitemap-hero">
+    <div class="container">
+      <h1>Website Sitemap</h1>
+      <p>Navigate our website structure and find all available pages and resources.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="sitemap-content">
+      <div class="content-container">
+        <div class="last-updated">
+          <p><strong>Last Updated:</strong> May 15, 2025</p>
+          <p>This sitemap provides an overview of all pages and sections available on the BonnieInfratech Solutions website.</p>
+        </div>
+
+        <!-- Search Sitemap -->
+        <div class="search-sitemap">
+          <h3><i class="fas fa-search"></i> Search Our Sitemap</h3>
+          <p>Looking for a specific page? Use the search below to quickly find it.</p>
+          
+          <div class="search-box">
+            <input type="text" id="sitemapSearch" placeholder="Search for pages...">
+            <button id="searchButton"><i class="fas fa-search"></i></button>
+          </div>
+          
+          <div class="search-results" id="searchResults">
+            <!-- Search results will be populated here -->
+          </div>
+        </div>
+
+        <!-- Main Pages -->
+        <div class="sitemap-section">
+          <h2><i class="fas fa-home"></i> Main Pages</h2>
+          <div class="sitemap-grid">
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-home"></i>
+                </div>
+                <h3>Home & Navigation</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home Page</a></li>
+                <li><a href="index.html#products"><i class="fas fa-chevron-right"></i> Featured Products</a></li>
+                <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Our Services</a></li>
+                <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> About Section</a></li>
+                <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact Section</a></li>
+              </ul>
+            </div>
+            
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>Products</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="products.html"><i class="fas fa-chevron-right"></i> All Products</a></li>
+                <li><a href="products.html#networking"><i class="fas fa-chevron-right"></i> Networking Equipment</a></li>
+                <li><a href="products.html#accessories"><i class="fas fa-chevron-right"></i> IT Accessories</a></li>
+                <li><a href="products.html#software"><i class="fas fa-chevron-right"></i> Software Solutions</a></li>
+                <li><a href="products.html#featured"><i class="fas fa-chevron-right"></i> Featured Products</a></li>
+              </ul>
+            </div>
+            
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Services</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="services.html"><i class="fas fa-chevron-right"></i> All Services</a></li>
+                <li><a href="services.html#networking"><i class="fas fa-chevron-right"></i> WiFi Solutions</a></li>
+                <li><a href="services.html#it-support"><i class="fas fa-chevron-right"></i> IT Support</a></li>
+                <li><a href="services.html#software"><i class="fas fa-chevron-right"></i> Software Development</a></li>
+                <li><a href="services.html#consulting"><i class="fas fa-chevron-right"></i> IT Consulting</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Company Information -->
+        <div class="sitemap-section">
+          <h2><i class="fas fa-building"></i> Company Information</h2>
+          <div class="sitemap-grid">
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-info-circle"></i>
+                </div>
+                <h3>About Us</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="about.html"><i class="fas fa-chevron-right"></i> About BonnieInfratech</a></li>
+                <li><a href="about.html#mission"><i class="fas fa-chevron-right"></i> Our Mission & Vision</a></li>
+                <li><a href="about.html#team"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+                <li><a href="about.html#history"><i class="fas fa-chevron-right"></i> Company History</a></li>
+                <li><a href="about.html#values"><i class="fas fa-chevron-right"></i> Our Values</a></li>
+              </ul>
+            </div>
+            
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Contact</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                <li><a href="contact.html#location"><i class="fas fa-chevron-right"></i> Our Location</a></li>
+                <li><a href="contact.html#support"><i class="fas fa-chevron-right"></i> Support Form</a></li>
+                <li><a href="contact.html#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                <li><a href="contact.html#hours"><i class="fas fa-chevron-right"></i> Business Hours</a></li>
+              </ul>
+            </div>
+            
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <h3>User Accounts</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="login.html"><i class="fas fa-chevron-right"></i> Login</a></li>
+                <li><a href="registration.html"><i class="fas fa-chevron-right"></i> Register</a></li>
+                <li><a href="forgot-password.html"><i class="fas fa-chevron-right"></i> Forgot Password</a></li>
+                <li><a href="profile.html"><i class="fas fa-chevron-right"></i> User Profile</a></li>
+                <li><a href="dashboard.html"><i class="fas fa-chevron-right"></i> User Dashboard</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Legal Pages -->
+        <div class="sitemap-section">
+          <h2><i class="fas fa-gavel"></i> Legal & Policies</h2>
+          <div class="sitemap-grid">
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Privacy & Security</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                <li><a href="privacy.html#data-collection"><i class="fas fa-chevron-right"></i> Data Collection</a></li>
+                <li><a href="privacy.html#data-use"><i class="fas fa-chevron-right"></i> Data Usage</a></li>
+                <li><a href="privacy.html#data-protection"><i class="fas fa-chevron-right"></i> Data Protection</a></li>
+                <li><a href="privacy.html#your-rights"><i class="fas fa-chevron-right"></i> Your Rights</a></li>
+              </ul>
+            </div>
+            
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-file-contract"></i>
+                </div>
+                <h3>Terms & Conditions</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                <li><a href="terms.html#user-agreement"><i class="fas fa-chevron-right"></i> User Agreement</a></li>
+                <li><a href="terms.html#purchases"><i class="fas fa-chevron-right"></i> Purchase Terms</a></li>
+                <li><a href="terms.html#intellectual-property"><i class="fas fa-chevron-right"></i> Intellectual Property</a></li>
+                <li><a href="terms.html#liability"><i class="fas fa-chevron-right"></i> Limitation of Liability</a></li>
+              </ul>
+            </div>
+            
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-cookie-bite"></i>
+                </div>
+                <h3>Cookie Policy</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="cookies.html"><i class="fas fa-chevron-right"></i> Cookie Policy</a></li>
+                <li><a href="cookies.html#what-are-cookies"><i class="fas fa-chevron-right"></i> What Are Cookies</a></li>
+                <li><a href="cookies.html#how-we-use"><i class="fas fa-chevron-right"></i> How We Use Cookies</a></li>
+                <li><a href="cookies.html#managing-cookies"><i class="fas fa-chevron-right"></i> Managing Cookies</a></li>
+                <li><a href="cookies.html#cookie-control"><i class="fas fa-chevron-right"></i> Cookie Preferences</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Support & Resources -->
+        <div class="sitemap-section">
+          <h2><i class="fas fa-life-ring"></i> Support & Resources</h2>
+          <div class="sitemap-grid">
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-question-circle"></i>
+                </div>
+                <h3>Help & Support</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="support.html"><i class="fas fa-chevron-right"></i> Support Center</a></li>
+                <li><a href="faq.html"><i class="fas fa-chevron-right"></i> Frequently Asked Questions</a></li>
+                <li><a href="troubleshooting.html"><i class="fas fa-chevron-right"></i> Troubleshooting Guides</a></li>
+                <li><a href="installation.html"><i class="fas fa-chevron-right"></i> Installation Guides</a></li>
+                <li><a href="maintenance.html"><i class="fas fa-chevron-right"></i> Maintenance Tips</a></li>
+              </ul>
+            </div>
+            
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-book"></i>
+                </div>
+                <h3>Resources</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog & Articles</a></li>
+                <li><a href="tutorials.html"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                <li><a href="whitepapers.html"><i class="fas fa-chevron-right"></i> Whitepapers</a></li>
+                <li><a href="case-studies.html"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+                <li><a href="downloads.html"><i class="fas fa-chevron-right"></i> Downloads</a></li>
+              </ul>
+            </div>
+            
+            <div class="sitemap-category">
+              <div class="category-header">
+                <div class="category-icon">
+                  <i class="fas fa-sitemap"></i>
+                </div>
+                <h3>Site Navigation</h3>
+              </div>
+              <ul class="page-list">
+                <li><a href="sitemap.html"><i class="fas fa-chevron-right"></i> Sitemap (This Page)</a></li>
+                <li><a href="sitemap.xml"><i class="fas fa-chevron-right"></i> XML Sitemap</a></li>
+                <li><a href="accessibility.html"><i class="fas fa-chevron-right"></i> Accessibility</a></li>
+                <li><a href="search.html"><i class="fas fa-chevron-right"></i> Site Search</a></li>
+                <li><a href="feedback.html"><i class="fas fa-chevron-right"></i> Website Feedback</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- XML Sitemap -->
+        <div class="xml-sitemap">
+          <h3><i class="fas fa-code"></i> XML Sitemap</h3>
+          <p>For search engines and developers, we provide an XML sitemap that follows the sitemap protocol.</p>
+          <a href="sitemap.xml" class="btn" style="margin-top: 10px;">View XML Sitemap</a>
+          <p style="margin-top: 15px; font-size: 0.9rem;">The XML sitemap helps search engines like Google, Bing, and Yahoo better index our website content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-text">Bonnie<span>Infratech</span></div>
+          <p>Your trusted partner for IT solutions, networking, and software development services in Kenya and beyond.</p>
+          
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Isiolo, Kenya</li>
+            <li><i class="fas fa-phone" style="margin-right: 8px;"></i> +254-705-123-736</li>
+            <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> bonifacemwonera02@gmail.com</li>
+            <li><i class="fas fa-clock" style="margin-right: 8px;"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 BonnieInfratech Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Sitemap search functionality
+    const sitemapSearch = document.getElementById('sitemapSearch');
+    const searchButton = document.getElementById('searchButton');
+    const searchResults = document.getElementById('searchResults');
+    
+    // Define all pages in the sitemap
+    const allPages = [
+      { title: 'Home Page', url: 'index.html', category: 'Main Pages', description: 'Main landing page of the website' },
+      { title: 'All Products', url: 'products.html', category: 'Products', description: 'Browse all IT products and equipment' },
+      { title: 'Product Categories', url: 'products.html#categories', category: 'Products', description: 'View products by category' },
+      { title: 'Featured Products', url: 'products.html#featured', category: 'Products', description: 'Our most popular products' },
+      { title: 'All Services', url: 'services.html', category: 'Services', description: 'IT services we offer' },
+      { title: 'WiFi Solutions', url: 'services.html#wifi', category: 'Services', description: 'WiFi installation and optimization' },
+      { title: 'IT Support', url: 'services.html#support', category: 'Services', description: 'Technical support services' },
+      { title: 'Software Development', url: 'services.html#software', category: 'Services', description: 'Custom software solutions' },
+      { title: 'About Us', url: 'about.html', category: 'Company', description: 'Learn about BonnieInfratech' },
+      { title: 'Our Mission', url: 'about.html#mission', category: 'Company', description: 'Our mission and vision' },
+      { title: 'Contact Us', url: 'contact.html', category: 'Contact', description: 'Get in touch with us' },
+      { title: 'Support Form', url: 'contact.html#support', category: 'Contact', description: 'Submit a support request' },
+      { title: 'Login', url: 'login.html', category: 'Accounts', description: 'Sign in to your account' },
+      { title: 'Register', url: 'registration.html', category: 'Accounts', description: 'Create a new account' },
+      { title: 'User Profile', url: 'profile.html', category: 'Accounts', description: 'Manage your account' },
+      { title: 'Privacy Policy', url: 'privacy.html', category: 'Legal', description: 'How we handle your data' },
+      { title: 'Terms of Service', url: 'terms.html', category: 'Legal', description: 'Terms and conditions' },
+      { title: 'Cookie Policy', url: 'cookies.html', category: 'Legal', description: 'Our use of cookies' },
+      { title: 'Sitemap', url: 'sitemap.html', category: 'Navigation', description: 'Website structure overview' },
+      { title: 'Support Center', url: 'support.html', category: 'Support', description: 'Get help and support' },
+      { title: 'FAQ', url: 'faq.html', category: 'Support', description: 'Frequently asked questions' },
+      { title: 'Blog', url: 'blog.html', category: 'Resources', description: 'Articles and updates' },
+      { title: 'Tutorials', url: 'tutorials.html', category: 'Resources', description: 'Learning resources' }
+    ];
+    
+    function performSearch() {
+      const query = sitemapSearch.value.toLowerCase().trim();
+      searchResults.innerHTML = '';
+      
+      if (!query) {
+        searchResults.classList.remove('show');
+        return;
+      }
+      
+      const filteredPages = allPages.filter(page => 
+        page.title.toLowerCase().includes(query) || 
+        page.description.toLowerCase().includes(query) ||
+        page.category.toLowerCase().includes(query)
+      );
+      
+      if (filteredPages.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">No pages found matching your search. Try different keywords.</div>';
+      } else {
+        filteredPages.forEach(page => {
+          const resultItem = document.createElement('div');
+          resultItem.className = 'search-result-item';
+          resultItem.innerHTML = `
+            <a href="${page.url}">
+              <i class="fas fa-file-alt"></i>
+              <div>
+                <strong>${page.title}</strong>
+                <div style="font-size: 0.9rem; color: var(--gray);">${page.description}</div>
+                <div style="font-size: 0.8rem; color: var(--secondary);">${page.category}</div>
+              </div>
+            </a>
+          `;
+          searchResults.appendChild(resultItem);
+        });
+      }
+      
+      searchResults.classList.add('show');
+    }
+    
+    searchButton.addEventListener('click', performSearch);
+    sitemapSearch.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') performSearch();
+    });
+    
+    // Add active class to current page in navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

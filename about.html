@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - BonnieInfratech Solutions</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    :root {
+      --primary: #1a5f23;
+      --primary-dark: #0f4417;
+      --primary-light: #2e7d32;
+      --secondary: #ff9800;
+      --accent: #2196f3;
+      --light: #f8f9fa;
+      --dark: #333;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      display: inline-block;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(26, 95, 35, 0.2);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+    }
+
+    .btn-secondary:hover {
+      background: #e68900;
+    }
+
+    /* ====== HEADER & NAVIGATION ====== */
+    header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      padding: 15px 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .logo-text span {
+      color: var(--secondary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      font-weight: 600;
+      color: var(--dark);
+      padding: 8px 0;
+      position: relative;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .auth-buttons a {
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .auth-buttons .login {
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .auth-buttons .login:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register {
+      background: var(--primary);
+      color: white;
+    }
+
+    .auth-buttons .register:hover {
+      background: var(--primary-dark);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* ====== ABOUT HERO ====== */
+    .about-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                  url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 150px 0 100px;
+      margin-bottom: 60px;
+    }
+
+    .about-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    /* ====== OUR STORY ====== */
+    .our-story {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .story-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .story-text h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+    }
+
+    .story-text p {
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .story-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      text-align: center;
+      background: var(--light);
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .stat-text {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* ====== MISSION & VISION ====== */
+    .mission-vision {
+      padding: 80px 0;
+      background: var(--light-gray);
+    }
+
+    .mv-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .mv-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 30px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mv-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .mv-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 25px;
+    }
+
+    .mv-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .mv-card p {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .mv-card.mission .mv-icon {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    }
+
+    .mv-card.vision .mv-icon {
+      background: linear-gradient(135deg, var(--secondary), #ffb74d);
+    }
+
+    /* ====== OUR TEAM ====== */
+    .our-team {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .team-member {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .member-photo {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .member-info {
+      padding: 25px;
+    }
+
+    .member-name {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .member-role {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .member-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .member-social {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: var(--light-gray);
+      color: var(--dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* ====== VALUES ====== */
+    .our-values {
+      padding: 80px 0;
+      background: var(--light-gray);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .value-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--light);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 20px;
+    }
+
+    .value-card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .value-card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ====== CTA SECTION ====== */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .cta-content p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn {
+      background: white;
+      color: var(--primary);
+      min-width: 180px;
+    }
+
+    .cta-buttons .btn-secondary {
+      background: var(--secondary);
+      color: white;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 60px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo .logo-text {
+      color: white;
+    }
+
+    .footer-logo p {
+      margin-top: 15px;
+      opacity: 0.8;
+    }
+
+    .footer-links h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 992px) {
+      .about-hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        width: 100%;
+        display: none;
+        margin-top: 20px;
+      }
+      
+      nav.active {
+        display: block;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .auth-buttons {
+        margin-top: 15px;
+        justify-content: center;
+      }
+      
+      .about-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .story-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .about-hero {
+        padding: 120px 0 80px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .mv-card, .team-member, .value-card {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <div class="logo-img-placeholder" style="height: 50px; width: 50px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">BI</div>
+        <div class="logo-text">Bonnie<span>Infratech</span></div>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <nav id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="login">Login</a>
+          <a href="registration.html" class="register">Register</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>Our Story & Vision</h1>
+      <p>Connecting people and businesses through innovative technology solutions since 2020. We're committed to delivering excellence in IT infrastructure and networking.</p>
+      <a href="#story" class="btn btn-secondary">Learn More About Us</a>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="our-story" id="story">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Story</h2>
+      </div>
+      
+      <div class="story-content">
+        <div class="story-text">
+          <h2>From Humble Beginnings to IT Excellence</h2>
+          <p>Founded in 2020 by Bonface Mwongera, BonnieInfratech Solutions started as a small IT consulting firm in Isiolo, Kenya. What began as a one-person operation has grown into a trusted technology partner for businesses across Eastern Kenya.</p>
+          <p>Our journey has been driven by a simple mission: to make reliable, innovative technology accessible to businesses of all sizes. We believe that every organization, regardless of its scale, deserves enterprise-grade IT solutions that empower growth and efficiency.</p>
+          <p>Today, we're proud to serve over 200 clients, complete 500+ projects, and maintain a team of certified IT professionals dedicated to pushing the boundaries of what's possible with technology.</p>
+          
+          <div class="story-stats">
+            <div class="stat-item">
+              <div class="stat-number">5+</div>
+              <div class="stat-text">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">200+</div>
+              <div class="stat-text">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-text">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">15+</div>
+              <div class="stat-text">Expert Engineers</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="story-image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our Team" style="width: 100%; border-radius: 16px; box-shadow: var(--shadow);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mission-vision">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Mission & Vision</h2>
+      </div>
+      
+      <div class="mv-container">
+        <div class="mv-card mission">
+          <div class="mv-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To deliver innovative, reliable, and affordable IT solutions that empower individuals and businesses to achieve more through technology and connectivity. We're committed to building lasting relationships based on trust, excellence, and exceptional service.</p>
+        </div>
+        
+        <div class="mv-card vision">
+          <div class="mv-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To be the leading provider of technology and networking solutions across East Africa, connecting people to endless possibilities and driving digital transformation that creates sustainable economic growth and development in our communities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team -->
+  <section class="our-team">
+    <div class="container">
+      <div class="section-title">
+        <h2>Meet Our Team</h2>
+        <p style="color: var(--gray); max-width: 700px; margin: 10px auto;">Our certified professionals bring together expertise in networking, software development, and IT support to deliver comprehensive solutions.</p>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bonface Mwongera" class="member-photo">
+          <div class="member-info">
+            <div class="member-name">Bonface Mwongera</div>
+            <div class="member-role">Founder & CEO</div>
+            <p class="member-desc">With over 8 years in IT infrastructure, Bonface leads our strategic direction and ensures we deliver exceptional value to every client.</p>
+            <div class="member-social">
+              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sarah Wangari" class="member-photo">
+          <div class="member-info">
+            <div class="member-name">Sarah Wangari</div>
+            <div class="member-role">Technical Director</div>
+            <p class="member-desc">Sarah oversees all technical operations with 10+ years experience in network architecture and cybersecurity solutions.</p>
+            <div class="member-social">
+              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+              <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005-128?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="James Kariuki" class="member-photo">
+          <div class="member-info">
+            <div class="member-name">James Kariuki</div>
+            <div class="member-role">Lead Network Engineer</div>
+            <p class="member-desc">James specializes in enterprise networking solutions with certifications from Cisco, CompTIA, and Microsoft.</p>
+            <div class="member-social">
+              <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"><i class="fas fa-globe"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="our-values">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Core Values</h2>
+        <p style="color: var(--gray); max-width: 700px; margin: 10px auto;">These principles guide everything we do at BonnieInfratech Solutions</p>
+      </div>
+      
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Integrity</h3>
+          <p>We build trust through honesty, transparency, and ethical business practices in all our interactions.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Innovation</h3>
+          <p>We constantly explore new technologies and methodologies to deliver cutting-edge solutions.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Customer Focus</h3>
+          <p>Our clients' success is our success. We listen, understand, and deliver solutions that exceed expectations.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h3>Excellence</h3>
+          <p>We strive for perfection in every project, delivering quality work that stands the test of time.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h3>Collaboration</h3>
+          <p>We believe in teamwork, both within our organization and in partnership with our clients.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Sustainability</h3>
+          <p>We're committed to environmentally responsible practices and sustainable business growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Partner With Us?</h2>
+        <p>Join the growing list of businesses that trust BonnieInfratech for their IT solutions. Let's build something amazing together.</p>
+        
+        <div class="cta-buttons">
+          <a href="contact.html" class="btn">Contact Us Today</a>
+          <a href="services.html" class="btn btn-secondary">Explore Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div class="logo-text">Bonnie<span>Infratech</span></div>
+          <p>Your trusted partner for IT solutions, networking, and software development services in Kenya and beyond.</p>
+          
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Isiolo, Kenya</li>
+            <li><i class="fas fa-phone" style="margin-right: 8px;"></i> +254-705-123-736</li>
+            <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> bonifacemwonera02@gmail.com</li>
+            <li><i class="fas fa-clock" style="margin-right: 8px;"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 BonnieInfratech Solutions. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add active class to current page in navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentPage = window.location.pathname.split('/').pop();
+      const navLinks = document.querySelectorAll('nav a');
+      
+      navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+          link.classList.add('active');
+        }
+      });
+    });
+    
+    // Team member animation
+    const teamMembers = document.querySelectorAll('.team-member');
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    // Initialize team members with animation
+    teamMembers.forEach((member, index) => {
+      member.style.opacity = '0';
+      member.style.transform = 'translateY(30px)';
+      member.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      member.style.transitionDelay = `${index * 0.1}s`;
+      
+      observer.observe(member);
+    });
+  </script>
+</body>
+</html>
