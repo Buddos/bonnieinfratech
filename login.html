@@ -38,6 +38,38 @@
       position: relative;
     }
 
+    /* ===== BACK TO HOME ARROW ===== */
+    .back-home {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    .back-home a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .back-home a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateX(-5px);
+    }
+
+    .back-home i {
+      font-size: 1.2rem;
+    }
+
     /* ===== BACKGROUND EFFECTS ===== */
     .background-pattern {
       position: absolute;
@@ -295,6 +327,12 @@
       color: var(--gray);
       cursor: pointer;
       font-size: 1.1rem;
+      transition: var(--transition);
+      z-index: 2;
+    }
+
+    .password-toggle:hover {
+      color: var(--primary);
     }
 
     /* ===== REMEMBER ME & FORGOT PASSWORD ===== */
@@ -469,11 +507,29 @@
       .shape {
         display: none;
       }
+      
+      .back-home {
+        top: 10px;
+        left: 10px;
+      }
+      
+      .back-home a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 
 <body>
+  <!-- Back to Home arrow -->
+  <div class="back-home">
+    <a href="index.html">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back to Home</span>
+    </a>
+  </div>
+
   <!-- Background elements -->
   <div class="background-pattern"></div>
   <div class="floating-shapes">
@@ -589,12 +645,25 @@
     const errorMessage = document.getElementById('errorMessage');
     const errorText = document.getElementById('errorText');
     
-    passwordToggle.addEventListener('click', () => {
-      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-      passwordInput.setAttribute('type', type);
-      passwordToggle.classList.toggle('fa-eye');
-      passwordToggle.classList.toggle('fa-eye-slash');
-    });
+    // Initialize password toggle functionality
+    function initPasswordToggle(toggleElement, inputElement) {
+      toggleElement.addEventListener('click', () => {
+        const isPassword = inputElement.getAttribute('type') === 'password';
+        inputElement.setAttribute('type', isPassword ? 'text' : 'password');
+        
+        // Update icon
+        if (isPassword) {
+          toggleElement.classList.remove('fa-eye');
+          toggleElement.classList.add('fa-eye-slash');
+        } else {
+          toggleElement.classList.remove('fa-eye-slash');
+          toggleElement.classList.add('fa-eye');
+        }
+      });
+    }
+    
+    // Initialize password toggle
+    initPasswordToggle(passwordToggle, passwordInput);
     
     // Form submission handler
     function checkLogin(event) {
@@ -614,7 +683,6 @@
       showError('', false); // Clear any previous error
       
       // For demo purposes - accept any non-empty credentials
-      // In real app, this would be a server-side authentication
       if (username && password) {
         // Show success message
         const loginBtn = document.querySelector('.login-btn');
@@ -625,16 +693,20 @@
         
         // Simulate network delay
         setTimeout(() => {
+          // Save to localStorage if "Remember me" is checked
+          if (rememberMe) {
+            localStorage.setItem('rememberedUser', username);
+          } else {
+            localStorage.removeItem('rememberedUser');
+          }
+          
+          // Save login state
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('currentUser', username);
+          
           // Redirect to dashboard or home page
           window.location.href = 'index.html';
         }, 1500);
-        
-        // Save to localStorage if "Remember me" is checked
-        if (rememberMe) {
-          localStorage.setItem('rememberedUser', username);
-        } else {
-          localStorage.removeItem('rememberedUser');
-        }
       } else {
         showError('Invalid username or password');
       }
@@ -658,6 +730,12 @@
       if (rememberedUser) {
         document.getElementById('username').value = rememberedUser;
         document.getElementById('rememberMe').checked = true;
+      }
+      
+      // Check if user is already logged in
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (isLoggedIn === 'true') {
+        window.location.href = 'index.html';
       }
     });
     
