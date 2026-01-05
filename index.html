@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: https:">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-
+  <!-- Updated CSP for local development -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: blob: https: file:;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BonnieInfratech Solutions - IT & Networking Solutions</title>
@@ -359,7 +359,9 @@
     .product-img {
       height: 200px;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background-color: #f8f9fa;
+      padding: 15px;
     }
 
     .product-content {
@@ -772,7 +774,7 @@
       <nav id="mainNav">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="#products">Products</a></li>
+          <li><a href="products.html">Products</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -793,7 +795,7 @@
       <h1>Advanced IT & Networking Solutions for Modern Businesses</h1>
       <p>BonnieInfratech provides cutting-edge WiFi solutions, IT accessories, networking infrastructure, and software development services to connect and empower your business.</p>
       <div class="hero-buttons">
-        <a href="#products" class="btn">Explore Products</a>
+        <a href="products.html" class="btn">Explore Products</a>
         <a href="#contact" class="btn btn-secondary">Get Consultation</a>
       </div>
     </div>
@@ -859,6 +861,10 @@
       
       <div class="products-grid" id="productsContainer">
         <!-- Products will be loaded dynamically -->
+      </div>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="products.html" class="btn">View All Products</a>
       </div>
     </div>
   </section>
@@ -1214,7 +1220,7 @@
           <h3>Quick Links</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#products">Products</a></li>
+            <li><a href="products.html">Products</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1235,10 +1241,10 @@
         <div class="footer-links">
           <h3>Legal</h3>
           <ul>
-            <li><a href="privacy.html" id="privacyLink">Privacy Policy</a></li>
-            <li><a href="terms.html" id="termsLink">Terms of Service</a></li>
-            <li><a href="cookies.html" id="cookiesLink">Cookie Policy</a></li>
-            <li><a href="sitemap.html" id="sitemapLink">Sitemap</a></li>
+            <li><a href="javascript:void(0)" id="privacyLink">Privacy Policy</a></li>
+            <li><a href="javascript:void(0)" id="termsLink">Terms of Service</a></li>
+            <li><a href="javascript:void(0)" id="cookiesLink">Cookie Policy</a></li>
+            <li><a href="javascript:void(0)" id="sitemapLink">Sitemap</a></li>
           </ul>
         </div>
       </div>
@@ -1293,79 +1299,61 @@
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productsContainer = document.getElementById('productsContainer');
     
-    // Sample product data
+    // Sample product data - UPDATED with your local images
     const products = [
       {
         id: 1,
-        name: "Enterprise WiFi Router",
+        name: "Tenda Router WE AX3000",
         category: "networking",
-        description: "High-performance router for businesses with advanced security features",
-        price: "KES 45,000",
-        image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: 4.8
+        description: "WiFi 6 router with AX3000 speeds for high-performance networking.",
+        price: "KES 32,000",
+        image: "assets/Tenda router WE AX300 router.png",
+        rating: 4.9
       },
       {
         id: 2,
-        name: "Mesh WiFi System",
+        name: "Tenda AC1200 Router",
         category: "networking",
-        description: "Whole-home coverage with seamless roaming and parental controls",
-        price: "KES 32,000",
-        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        description: "Dual-band wireless router with high-speed connectivity for home and office.",
+        price: "KES 15,000",
+        image: "assets/Tenda AC1200 router.png",
         rating: 4.7
       },
       {
         id: 3,
-        name: "Network Switch 24-Port",
+        name: "CAT6 Ethernet Cable",
         category: "networking",
-        description: "Gigabit Ethernet switch for office networks with PoE support",
-        price: "KES 28,500",
-        image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: 4.5
+        description: "High-performance CAT6 Ethernet cable for reliable network connections.",
+        price: "KES 8,500",
+        image: "assets/CAT6 Ethernet Cable.png",
+        rating: 4.8
       },
       {
         id: 4,
-        name: "Wireless Access Point",
+        name: "Tenda Standard Router",
         category: "networking",
-        description: "Ceiling-mounted access point for high-density environments",
-        price: "KES 18,000",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: 4.6
+        description: "Reliable wireless router for basic home and office networking needs.",
+        price: "KES 8,000",
+        image: "assets/Tenda router.png",
+        rating: 4.5
       },
       {
         id: 5,
-        name: "Laptop Docking Station",
+        name: "CAT6 Ethernet Cable",
         category: "accessories",
-        description: "USB-C docking station with dual monitor support",
-        price: "KES 12,500",
-        image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: 4.4
+        description: "Quality network cable for stable internet connections.",
+        price: "KES 5,000",
+        image: "assets/cat 6 ethernet cable.png",
+        rating: 4.6
       },
       {
         id: 6,
-        name: "Business VPN License",
-        category: "software",
-        description: "Secure remote access solution for 50 users",
-        price: "KES 65,000/year",
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: 4.9
-      },
-      {
-        id: 7,
-        name: "Network Cabinet",
+        name: "BonnieInfratech Logo",
         category: "accessories",
-        description: "19-inch wall-mount cabinet for network equipment",
-        price: "KES 35,000",
-        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: 4.3
-      },
-      {
-        id: 8,
-        name: "Inventory Management Software",
-        category: "software",
-        description: "Custom software for tracking stock and sales",
-        price: "KES 120,000",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        rating: 4.8
+        description: "Company branding and logo files.",
+        price: "KES 5,000",
+        image: "assets/logo.png",
+        rating: 5.0
       }
     ];
     
@@ -1405,7 +1393,7 @@
               <div class="product-rating">
                 ${stars} <span>${product.rating}</span>
               </div>
-              <button class="btn" style="padding: 8px 16px; font-size: 0.9rem;">Buy Now</button>
+              <button class="btn" style="padding: 8px 16px; font-size: 0.9rem;" onclick="window.location.href='products.html'">View Details</button>
             </div>
           </div>
         `;
@@ -1469,14 +1457,14 @@
       });
     });
     
-    // Safe link handling for legal pages - show content instead of trying to load non-existent files
+    // Safe link handling for legal pages
     document.addEventListener('DOMContentLoaded', function() {
       // Handle legal page links - show content modals instead of trying to load files
       const legalLinks = {
-        'privacyLink': 'privacy.html',
-        'termsLink': 'terms.html',
-        'cookiesLink': 'cookies.html',
-        'sitemapLink': 'sitemap.html'
+        'privacyLink': 'Privacy Policy',
+        'termsLink': 'Terms of Service',
+        'cookiesLink': 'Cookie Policy',
+        'sitemapLink': 'Sitemap'
       };
       
       for (const [linkId, pageName] of Object.entries(legalLinks)) {
@@ -1490,9 +1478,6 @@
           });
         }
       }
-      
-      // Check for existing files and create them if needed
-      checkAndCreateFiles();
     });
     
     function showLegalPageModal(pageName) {
@@ -1548,16 +1533,16 @@
       // Add content based on page
       let content = '';
       switch(pageName) {
-        case 'privacy.html':
+        case 'Privacy Policy':
           content = getPrivacyContent();
           break;
-        case 'terms.html':
+        case 'Terms of Service':
           content = getTermsContent();
           break;
-        case 'cookies.html':
+        case 'Cookie Policy':
           content = getCookiesContent();
           break;
-        case 'sitemap.html':
+        case 'Sitemap':
           content = getSitemapContent();
           break;
         default:
@@ -1667,25 +1652,18 @@
           
           <h2>Main Pages</h2>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          
-          <h2>Legal Pages</h2>
-          <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="index.html" onclick="event.preventDefault(); window.location.href='index.html'">Home</a></li>
+            <li><a href="products.html" onclick="event.preventDefault(); window.location.href='products.html'">Products</a></li>
+            <li><a href="#services" onclick="event.preventDefault(); document.querySelector('#services').scrollIntoView({behavior:'smooth'})">Services</a></li>
+            <li><a href="#about" onclick="event.preventDefault(); document.querySelector('#about').scrollIntoView({behavior:'smooth'})">About Us</a></li>
+            <li><a href="#contact" onclick="event.preventDefault(); document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Contact</a></li>
           </ul>
           
           <h2>User Pages</h2>
           <ul>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="registration.html">Register</a></li>
-            <li><a href="admin.html">Admin</a></li>
+            <li><a href="login.html" onclick="event.preventDefault(); window.location.href='login.html'">Login</a></li>
+            <li><a href="registration.html" onclick="event.preventDefault(); window.location.href='registration.html'">Register</a></li>
+            <li><a href="admin.html" onclick="event.preventDefault(); window.location.href='admin.html'">Admin</a></li>
           </ul>
           
           <h2>Contact Information</h2>
@@ -1696,50 +1674,6 @@
         </div>
       `;
     }
-    
-    function checkAndCreateFiles() {
-      // Check if we're on a local file system (file:// protocol)
-      if (window.location.protocol === 'file:') {
-        console.log('Running on local file system - creating placeholder pages');
-        
-        // Create placeholder pages for missing files
-        const pages = ['privacy.html', 'terms.html', 'cookies.html', 'sitemap.html'];
-        
-        pages.forEach(page => {
-          // Check if page exists by trying to fetch it
-          fetch(page)
-            .then(response => {
-              if (!response.ok) {
-                // Page doesn't exist, create a placeholder
-                createPlaceholderPage(page);
-              }
-            })
-            .catch(() => {
-              // Network error - likely page doesn't exist
-              createPlaceholderPage(page);
-            });
-        });
-      }
-    }
-    
-    function createPlaceholderPage(pageName) {
-      // This would create actual HTML files in a real server environment
-      console.log(`Placeholder page needed: ${pageName}`);
-      // In a browser environment, we can't create files, so we rely on the modal approach
-    }
-    
-    // Initialize all service detail elements
-    document.addEventListener('DOMContentLoaded', function() {
-      // Make sure all service detail elements exist
-      const services = ['wifi', 'it', 'software', 'consulting', 'support'];
-      services.forEach(service => {
-        const element = document.getElementById(`${service}-service`);
-        if (!element) {
-          console.log(`Creating missing service element: ${service}-service`);
-          // You could create the element here if needed
-        }
-      });
-    });
   </script>
 </body>
 </html>
