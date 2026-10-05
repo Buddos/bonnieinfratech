@@ -1,4 +1,40 @@
-node_modules/
-.DS_Store
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+media/
+*.log
+
+# Static files (collected)
+staticfiles/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (legacy)
+node_modules/
+
+# Vercel (legacy)
 .vercel
+
+# Environment variables
+.env
+.env.local

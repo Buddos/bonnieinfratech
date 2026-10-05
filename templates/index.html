@@ -1,14 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Updated CSP for local development -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: blob: https: file:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' data: blob: https: file: /media/;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="X-Frame-Options" content="DENY">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BonnieInfratech Solutions - IT & Networking Solutions</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* ====== GLOBAL STYLES ====== */
@@ -759,10 +760,21 @@
 </head>
 
 <body>
+  {% if messages %}
+  <div class="container" style="margin-top: 90px; margin-bottom: -70px; position: relative; z-index: 100;">
+    {% for message in messages %}
+      <div style="padding: 14px 20px; border-radius: 8px; margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.08); {% if message.tags == 'success' %}background: #d4edda; color: #155724; border: 1px solid #c3e6cb;{% elif message.tags == 'error' %}background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;{% else %}background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb;{% endif %}">
+        <div><i class="fas {% if message.tags == 'success' %}fa-check-circle{% elif message.tags == 'error' %}fa-exclamation-circle{% else %}fa-info-circle{% endif %}" style="margin-right: 8px;"></i> {{ message }}</div>
+        <button onclick="this.parentElement.remove()" style="background:none; border:none; font-size:1.2rem; cursor:pointer; color:inherit;">&times;</button>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <!-- Header -->
   <header>
     <div class="container header-container">
-      <a href="index.html" class="logo">
+      <a href="{% url 'home' %}" class="logo">
         <div class="logo-img-placeholder" style="height: 50px; width: 50px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">BI</div>
         <div class="logo-text">Bonnie<span>Infratech</span></div>
       </a>
@@ -773,17 +785,27 @@
       
       <nav id="mainNav">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'products' %}">Products</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="admin.html">Admin</a></li>
+          <li><a href="{% url 'dashboard' %}">Admin</a></li>
         </ul>
         
-        <div class="auth-buttons">
-          <a href="login.html" class="login">Login</a>
-          <a href="registration.html" class="register">Register</a>
+                <div class="auth-buttons">
+          {% if user.is_authenticated %}
+            <span style="font-weight: 600; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(26,95,35,0.08); border-radius: 20px;">
+              <i class="fas fa-user-circle"></i> {{ user.username }}
+            </span>
+            {% if user.is_staff or user.is_superuser %}
+              <a href="{% url 'dashboard' %}" class="btn" style="padding: 6px 14px; font-size: 0.85rem;">Dashboard</a>
+            {% endif %}
+            <a href="{% url 'logout' %}" class="btn-secondary" style="padding: 6px 14px; font-size: 0.85rem; border-radius: 50px;">Logout</a>
+          {% else %}
+            <a href="{% url 'login' %}" class="login">Login</a>
+            <a href="{% url 'register' %}" class="register">Register</a>
+          {% endif %}
         </div>
       </nav>
     </div>
@@ -795,7 +817,7 @@
       <h1>Advanced IT & Networking Solutions for Modern Businesses</h1>
       <p>BonnieInfratech provides cutting-edge WiFi solutions, IT accessories, networking infrastructure, and software development services to connect and empower your business.</p>
       <div class="hero-buttons">
-        <a href="products.html" class="btn">Explore Products</a>
+        <a href="{% url 'products' %}" class="btn">Explore Products</a>
         <a href="#contact" class="btn btn-secondary">Get Consultation</a>
       </div>
     </div>
@@ -864,7 +886,7 @@
       </div>
       
       <div style="text-align: center; margin-top: 40px;">
-        <a href="products.html" class="btn">View All Products</a>
+        <a href="{% url 'products' %}" class="btn">View All Products</a>
       </div>
     </div>
   </section>
@@ -1159,37 +1181,38 @@
         
         <div class="contact-form">
           <h3>Send us a Message</h3>
-          <form id="contactForm">
+          <form id="contactForm" method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
             <div class="form-group">
               <label for="name">Full Name</label>
-              <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+              <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
             </div>
             
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
             </div>
             
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" class="form-control" placeholder="Your Phone">
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your Phone">
             </div>
             
             <div class="form-group">
               <label for="service">Service Interested In</label>
-              <select id="service" class="form-control">
-                <option value="">Select a service</option>
-                <option value="wifi">WiFi Solutions</option>
-                <option value="it">IT Infrastructure</option>
-                <option value="software">Software Development</option>
-                <option value="consulting">IT Consulting</option>
-                <option value="support">Support & Maintenance</option>
+              <select id="service" name="subject" class="form-control">
+                <option value="General Inquiry">Select a service</option>
+                <option value="WiFi Solutions">WiFi Solutions</option>
+                <option value="IT Infrastructure">IT Infrastructure</option>
+                <option value="Software Development">Software Development</option>
+                <option value="IT Consulting">IT Consulting</option>
+                <option value="Support & Maintenance">Support & Maintenance</option>
               </select>
             </div>
             
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" class="form-control" rows="4" placeholder="Tell us about your project or inquiry" required></textarea>
+              <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell us about your project or inquiry" required></textarea>
             </div>
             
             <button type="submit" class="btn" style="width: 100%;">Send Message</button>
@@ -1219,8 +1242,8 @@
         <div class="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'products' %}">Products</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1241,16 +1264,16 @@
         <div class="footer-links">
           <h3>Legal</h3>
           <ul>
-            <li><a href="javascript:void(0)" id="privacyLink">Privacy Policy</a></li>
-            <li><a href="javascript:void(0)" id="termsLink">Terms of Service</a></li>
-            <li><a href="javascript:void(0)" id="cookiesLink">Cookie Policy</a></li>
-            <li><a href="javascript:void(0)" id="sitemapLink">Sitemap</a></li>
+            <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+            <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+            <li><a href="{% url 'cookies' %}">Cookie Policy</a></li>
+            <li><a href="{% url 'sitemap' %}">Sitemap</a></li>
           </ul>
         </div>
       </div>
       
       <div class="copyright">
-        <p>&copy; 2025 BonnieInfratech Solutions. All Rights Reserved.</p>
+        <p>&copy; {% now "Y" %} BonnieInfratech Solutions. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
@@ -1299,55 +1322,8 @@
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productsContainer = document.getElementById('productsContainer');
     
-    // Sample product data - UPDATED with your local images
-    const products = [
-      {
-        id: 1,
-        name: "Tenda Router WE AX3000",
-        category: "networking",
-        description: "WiFi 6 router with AX3000 speeds for high-performance networking.",
-        price: "KES 32,000",
-        image: "assets/Tenda router WE AX300 router.png",
-        rating: 4.9
-      },
-      {
-        id: 2,
-        name: "Tenda AC1200 Router",
-        category: "networking",
-        description: "Dual-band wireless router with high-speed connectivity for home and office.",
-        price: "KES 15,000",
-        image: "assets/Tenda AC1200 router.png",
-        rating: 4.7
-      },
-      {
-        id: 3,
-        name: "CAT6 Ethernet Cable",
-        category: "networking",
-        description: "High-performance CAT6 Ethernet cable for reliable network connections.",
-        price: "KES 8,500",
-        image: "assets/CAT6 Ethernet Cable.png",
-        rating: 4.8
-      },
-      {
-        id: 4,
-        name: "Tenda Standard Router",
-        category: "networking",
-        description: "Reliable wireless router for basic home and office networking needs.",
-        price: "KES 8,000",
-        image: "assets/Tenda router.png",
-        rating: 4.5
-      },
-      {
-        id: 5,
-        name: "CAT6 Ethernet Cable",
-        category: "accessories",
-        description: "Quality network cable for stable internet connections.",
-        price: "KES 5,000",
-        image: "assets/cat 6 ethernet cable.png",
-        rating: 4.6
-      },
-     
-    ];
+    // Dynamic product data from Django backend
+    const products = {{ products_json|safe }};
     
     // Function to render products
     function renderProducts(filter = 'all') {
@@ -1355,8 +1331,13 @@
       
       const filteredProducts = filter === 'all' 
         ? products 
-        : products.filter(product => product.category === filter);
+        : products.filter(product => (product.category || '').toLowerCase() === filter.toLowerCase());
       
+      if (filteredProducts.length === 0) {
+        productsContainer.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--gray);"><p>No products found in this category.</p></div>';
+        return;
+      }
+
       filteredProducts.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
@@ -1365,27 +1346,29 @@
         // Generate star rating
         let stars = '';
         for (let i = 1; i <= 5; i++) {
-          if (i <= Math.floor(product.rating)) {
+          if (i <= Math.floor(product.rating || 5)) {
             stars += '<i class="fas fa-star"></i>';
-          } else if (i === Math.ceil(product.rating) && !Number.isInteger(product.rating)) {
+          } else if (i === Math.ceil(product.rating || 5) && !Number.isInteger(product.rating)) {
             stars += '<i class="fas fa-star-half-alt"></i>';
           } else {
             stars += '<i class="far fa-star"></i>';
           }
         }
         
+        const priceText = product.price_formatted || ('KES ' + Number(product.price || 0).toLocaleString());
+
         productCard.innerHTML = `
           <img src="${product.image}" alt="${product.name}" class="product-img">
           <div class="product-content">
-            <span class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</span>
+            <span class="product-category">${(product.category || 'Networking').charAt(0).toUpperCase() + (product.category || 'Networking').slice(1)}</span>
             <h3>${product.name}</h3>
             <p class="product-description">${product.description}</p>
-            <div class="product-price">${product.price}</div>
+            <div class="product-price">${priceText}</div>
             <div class="product-meta">
               <div class="product-rating">
-                ${stars} <span>${product.rating}</span>
+                ${stars} <span>${product.rating || '4.8'}</span>
               </div>
-              <button class="btn" style="padding: 8px 16px; font-size: 0.9rem;" onclick="window.location.href='products.html'">View Details</button>
+              <button class="btn" style="padding: 8px 16px; font-size: 0.9rem;" onclick="window.location.href='{% url 'products' %}'">View Details</button>
             </div>
           </div>
         `;
@@ -1412,25 +1395,6 @@
       });
     });
     
-    // Contact form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const service = document.getElementById('service').value;
-        
-        // In a real application, you would send this data to a server
-        alert(`Thank you ${name}! We have received your inquiry about ${service || 'our services'}. We will contact you at ${email} within 24 hours.`);
-        
-        // Reset form
-        contactForm.reset();
-      });
-    }
-    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -1449,223 +1413,14 @@
       });
     });
     
-    // Safe link handling for legal pages
+    // Auto-dismiss flash messages after 5 seconds
     document.addEventListener('DOMContentLoaded', function() {
-      // Handle legal page links - show content modals instead of trying to load files
-      const legalLinks = {
-        'privacyLink': 'Privacy Policy',
-        'termsLink': 'Terms of Service',
-        'cookiesLink': 'Cookie Policy',
-        'sitemapLink': 'Sitemap'
-      };
-      
-      for (const [linkId, pageName] of Object.entries(legalLinks)) {
-        const link = document.getElementById(linkId);
-        if (link) {
-          link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Create and show a modal with the content
-            showLegalPageModal(pageName);
-          });
-        }
-      }
+      document.querySelectorAll('[onclick*="this.parentElement.remove()"]').forEach(function(btn) {
+        setTimeout(function() {
+          if (btn.parentElement) btn.parentElement.remove();
+        }, 5000);
+      });
     });
-    
-    function showLegalPageModal(pageName) {
-      // Create modal container
-      const modal = document.createElement('div');
-      modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.8);
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-      `;
-      
-      // Create modal content
-      const modalContent = document.createElement('div');
-      modalContent.style.cssText = `
-        background: white;
-        border-radius: 12px;
-        max-width: 900px;
-        width: 100%;
-        max-height: 90vh;
-        overflow-y: auto;
-        position: relative;
-      `;
-      
-      // Create close button
-      const closeButton = document.createElement('button');
-      closeButton.innerHTML = '<i class="fas fa-times"></i>';
-      closeButton.style.cssText = `
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: var(--primary);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        z-index: 10;
-      `;
-      closeButton.addEventListener('click', () => {
-        document.body.removeChild(modal);
-      });
-      
-      // Add content based on page
-      let content = '';
-      switch(pageName) {
-        case 'Privacy Policy':
-          content = getPrivacyContent();
-          break;
-        case 'Terms of Service':
-          content = getTermsContent();
-          break;
-        case 'Cookie Policy':
-          content = getCookiesContent();
-          break;
-        case 'Sitemap':
-          content = getSitemapContent();
-          break;
-        default:
-          content = '<div style="padding: 40px; text-align: center;"><h2>Page Coming Soon</h2><p>This page is under development.</p></div>';
-      }
-      
-      modalContent.innerHTML = content;
-      modalContent.appendChild(closeButton);
-      modal.appendChild(modalContent);
-      
-      // Add to body
-      document.body.appendChild(modal);
-      
-      // Close on background click
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          document.body.removeChild(modal);
-        }
-      });
-    }
-    
-    function getPrivacyContent() {
-      return `
-        <div style="padding: 40px;">
-          <h1 style="color: var(--primary); margin-bottom: 20px;">Privacy Policy</h1>
-          <p><strong>Last Updated:</strong> May 15, 2025</p>
-          
-          <h2>Information We Collect</h2>
-          <p>We collect information you provide directly to us, such as when you create an account, make a purchase, or contact us for support.</p>
-          
-          <h2>How We Use Your Information</h2>
-          <p>We use your information to provide, maintain, and improve our services, communicate with you, and protect our users.</p>
-          
-          <h2>Information Sharing</h2>
-          <p>We do not sell your personal information. We may share information with service providers who assist us in operating our services.</p>
-          
-          <h2>Your Rights</h2>
-          <p>You have the right to access, correct, or delete your personal information. Contact us to exercise these rights.</p>
-          
-          <h2>Contact Us</h2>
-          <p>If you have questions about this Privacy Policy, contact us at privacy@bonnieinfratech.co.ke</p>
-        </div>
-      `;
-    }
-    
-    function getTermsContent() {
-      return `
-        <div style="padding: 40px;">
-          <h1 style="color: var(--primary); margin-bottom: 20px;">Terms of Service</h1>
-          <p><strong>Last Updated:</strong> May 15, 2025</p>
-          
-          <h2>Acceptance of Terms</h2>
-          <p>By accessing or using our services, you agree to be bound by these Terms of Service.</p>
-          
-          <h2>Our Services</h2>
-          <p>We provide IT and networking solutions including WiFi installation, network setup, IT support, and software development.</p>
-          
-          <h2>User Accounts</h2>
-          <p>You are responsible for maintaining the confidentiality of your account and password.</p>
-          
-          <h2>Purchases & Payments</h2>
-          <p>All purchases are subject to our pricing and payment terms. Prices are subject to change without notice.</p>
-          
-          <h2>Limitation of Liability</h2>
-          <p>We are not liable for any indirect, incidental, or consequential damages arising from your use of our services.</p>
-          
-          <h2>Contact Us</h2>
-          <p>For questions about these terms, contact us at legal@bonnieinfratech.co.ke</p>
-        </div>
-      `;
-    }
-    
-    function getCookiesContent() {
-      return `
-        <div style="padding: 40px;">
-          <h1 style="color: var(--primary); margin-bottom: 20px;">Cookie Policy</h1>
-          <p><strong>Last Updated:</strong> May 15, 2025</p>
-          
-          <h2>What Are Cookies?</h2>
-          <p>Cookies are small text files stored on your device when you visit our website.</p>
-          
-          <h2>How We Use Cookies</h2>
-          <p>We use cookies to enhance your experience, analyze site usage, and personalize content.</p>
-          
-          <h2>Types of Cookies</h2>
-          <ul>
-            <li><strong>Essential Cookies:</strong> Required for basic website functionality</li>
-            <li><strong>Performance Cookies:</strong> Help us understand how visitors use our site</li>
-            <li><strong>Functional Cookies:</strong> Remember your preferences</li>
-            <li><strong>Advertising Cookies:</strong> Used to deliver relevant ads</li>
-          </ul>
-          
-          <h2>Managing Cookies</h2>
-          <p>You can control cookies through your browser settings. Disabling cookies may affect website functionality.</p>
-          
-          <h2>Contact Us</h2>
-          <p>For cookie-related questions, contact us at privacy@bonnieinfratech.co.ke</p>
-        </div>
-      `;
-    }
-    
-    function getSitemapContent() {
-      return `
-        <div style="padding: 40px;">
-          <h1 style="color: var(--primary); margin-bottom: 20px;">Website Sitemap</h1>
-          <p><strong>Last Updated:</strong> May 15, 2025</p>
-          
-          <h2>Main Pages</h2>
-          <ul>
-            <li><a href="index.html" onclick="event.preventDefault(); window.location.href='index.html'">Home</a></li>
-            <li><a href="products.html" onclick="event.preventDefault(); window.location.href='products.html'">Products</a></li>
-            <li><a href="#services" onclick="event.preventDefault(); document.querySelector('#services').scrollIntoView({behavior:'smooth'})">Services</a></li>
-            <li><a href="#about" onclick="event.preventDefault(); document.querySelector('#about').scrollIntoView({behavior:'smooth'})">About Us</a></li>
-            <li><a href="#contact" onclick="event.preventDefault(); document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Contact</a></li>
-          </ul>
-          
-          <h2>User Pages</h2>
-          <ul>
-            <li><a href="login.html" onclick="event.preventDefault(); window.location.href='login.html'">Login</a></li>
-            <li><a href="registration.html" onclick="event.preventDefault(); window.location.href='registration.html'">Register</a></li>
-            <li><a href="admin.html" onclick="event.preventDefault(); window.location.href='admin.html'">Admin</a></li>
-          </ul>
-          
-          <h2>Contact Information</h2>
-          <p>BonnieInfratech Solutions<br>
-          Isiolo, Kenya<br>
-          Email: info@bonnieinfratech.co.ke<br>
-          Phone: +254-705-123-736</p>
-        </div>
-      `;
-    }
   </script>
 </body>
 </html>
